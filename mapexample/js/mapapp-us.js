@@ -160,8 +160,8 @@ jQuery(document).ready(function(){
 //
 //		nebraska
 //			{	id: "nebraska-name", 		src: pluginpath + "assets/names/nebraska-n.png", 			data: "479.325,184.098"  },
-			{	id: "nebraska-state", 		src: pluginpath + "assets/states/nebraska-s.png", 			data: "479.325,184.098"  }																				
-			{	id: "nebraska-overlay", 	src: pluginpath + "assets/overlays/nebraska-o.png", 		data: "479.325,184.098"  }																				
+			{	id: "nebraska-state", 		src: pluginpath + "assets/states/nebraska-s.png", 			data: "479.325,184.098"  },																				
+			{	id: "nebraska-overlay", 	src: pluginpath + "assets/overlays/nebraska-o.png", 		data: "479.325,184.098"  },																				
 //
 //		nevada
 //			{	id: "nevada-name", 			src: pluginpath + "assets/names/nevada-n.png", 				data: "253.835,163.923"  },
@@ -205,8 +205,8 @@ jQuery(document).ready(function(){
 //
 //		ohio
 //			{	id: "ohio-name", 			src: pluginpath + "assets/names/ohio-n.png", 				data: "741.73,193.881"  },
-			{	id: "ohio-state", 			src: pluginpath + "assets/states/ohio-s.png", 				data: "741.73,193.881"  }																				
-			{	id: "ohio-overlay", 		src: pluginpath + "assets/overlays/ohio-o.png", 			data: "741.73,193.881"  }																				
+			{	id: "ohio-state", 			src: pluginpath + "assets/states/ohio-s.png", 				data: "741.73,193.881"  },																				
+			{	id: "ohio-overlay", 		src: pluginpath + "assets/overlays/ohio-o.png", 			data: "741.73,193.881"  },																				
 //
 //		oregon
 //			{	id: "oregon-name", 			src: pluginpath + "assets/names/oregon-n.png", 				data: "214.805,76.626"  },
