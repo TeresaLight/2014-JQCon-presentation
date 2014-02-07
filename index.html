@@ -14,6 +14,7 @@
 
 		<style>
 
+		/* General Styles */
 		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p {
 			font-family: 'Ubuntu', sans-serif;
 		}
@@ -30,34 +31,18 @@
 			color:white;
 		}
 
-		.reveal #josh .bio-left{
-			width: 30%;
-			float:left;
-
-		}
-
-		.reveal #josh .bio-left img{
-			max-width: 100%;
-						
-		}
-		
-		.reveal #josh .bio-right{
-			width: 60%;
-			float:right;
-		}
-
-		.reveal #josh .bio-right h2{
-			font-size: 48px;
-
-		}
-
-		.reveal #josh .bio-right p{
-			font-size: 24px;
+		address{
+			margin-top: 200px;
 			text-align: left;
 		}
 
+		/* Sudo Grid/Layout Formating */
 		.content-left-60{
 			width:60%;
+			float:left;
+		}
+		.content-left-40{
+			width:40%;
 			float:left;
 		}
 
@@ -71,10 +56,26 @@
 			float:right;
 		}
 
-		address{
-			margin-top: 200px;
+		
+
+		/* Josh's Bio Slide*/
+		
+		.reveal #josh-bio img{
+			max-width: 70%;
+						
+		}
+		
+		.reveal #josh-bio h2{
+			font-size: 48px;
+
+		}
+
+		.reveal #josh-bio p{
+			font-size: 24px;
 			text-align: left;
 		}
+
+		
 
 		</style>
 	</head>
@@ -99,11 +100,11 @@
 						<h2>Who is Teresa Light</h2>
 							<p>The short bio goes here.</p>
 					</section>
-					<section id="josh" data-background="rgba(0, 0, 0, 0.2)">
-						<div class="bio-left">
+					<section id="josh-bio" data-background="rgba(0, 0, 0, 0.2)">
+						<div class="content-left-40">
 							<img src="assets/josh.jpg"/>
 						</div>
-						<div class="bio-right">
+						<div class="content-right-60">
 							<h2>Who is Joshua Smith</h2>
 							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have been programing for over 5 years and now have an emphasis in Javascript.  The Javascript community has become a second home and a passion, which I am very active in locally.   I have fallen in love with developing  with tools such as CreateJS and enjoy  spending the day making awesome applications that make people say wow.</p>
 
@@ -153,7 +154,7 @@
 					<div class="content-left-60">
 						<h2>SoundJS</h2>
 						<p>A Javascript library for tweening and animating HTML5 and Javascript properties.</p>
-					<div class="content-left-60">
+					</div>
 				</section>
 
 				<section>
