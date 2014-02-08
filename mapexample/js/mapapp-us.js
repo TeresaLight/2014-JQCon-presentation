@@ -13,9 +13,10 @@ jQuery(document).ready(function(){
 	//Sets up the data 
 	var backgrounds = 
 		[
-//			{	id: "background-borders",	src: path + "assets/backgrounds/usMap-borders.png",  data: "0,0"	 },
-//			{	id: "background-borders-names",      src: path + "assets/backgrounds/USMap-borders-names.png",  data: "0,0"	 },
-//			{	id: "background-full",   src: path + "assets/backgrounds/USMap-full.png",  data: "0,0"	 },
+			{	id: "background-borders",	src: path + "assets/backgrounds/usMap-borders.png",  data: "0,0"	 },
+			{	id: "background-borders-names",      src: path + "assets/backgrounds/usMap-borders-names.png",  data: "0,0"	 },
+			{	id: "background-full",   src: path + "assets/backgrounds/usMap-full.png",  data: "0,0"	 },
+			{	id: "background-names",   src: path + "assets/backgrounds/usMap-names.png",  data: "0,0"	 },
 			{	id: "background-states-borders",   src: path + "assets/backgrounds/usMap-states-borders.png",  data: "0,0"	 },
 		];
 	
@@ -416,7 +417,7 @@ jQuery(document).ready(function(){
 
 		//Load Background
 		jQuery('#stateSelect,#regionSelect').show();
-		var loadedImage = preload.getResult(background[0].id);
+		var loadedImage = preload.getResult(backgrounds[4].id);
 		var bitmapImage = new createjs.Bitmap(loadedImage);
 			
 		stage.addChild(bitmapImage);
