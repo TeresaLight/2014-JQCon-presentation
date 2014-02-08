@@ -74,6 +74,7 @@ jQuery(document).ready(function(){
 
 			stage.update();	
 
+		}
 	}
 	
 	function handleLoadProgress(e){
@@ -125,8 +126,9 @@ jQuery(document).ready(function(){
 
 	};
 
-	//It's a me Mario!
+	//Do what you love...Love what you do!
 	jQuery(document).ready(function($) {
-		init();
+//		init();
+console.log ('teresa was here');
 	});
 })
