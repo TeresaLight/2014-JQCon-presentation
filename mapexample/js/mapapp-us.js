@@ -13,10 +13,10 @@ jQuery(document).ready(function(){
 	//Sets up the data 
 	var backgrounds = 
 		[
-			{	id: "background-borders",	src: path + "assets/backgrounds/usMap-borders.png",  data: "0,0"	 },
-			{	id: "background-borders-names",      src: path + "assets/backgrounds/USMap-borders-names.png",  data: "0,0"	 },
-			{	id: "background-full",   src: path + "assets/backgrounds/USMap-full.png",  data: "0,0"	 },
-			{	id: "background-states-borders",   src: path + "assets/backgrounds/USMap-states-borders.png",  data: "0,0"	 },
+//			{	id: "background-borders",	src: path + "assets/backgrounds/usMap-borders.png",  data: "0,0"	 },
+//			{	id: "background-borders-names",      src: path + "assets/backgrounds/USMap-borders-names.png",  data: "0,0"	 },
+//			{	id: "background-full",   src: path + "assets/backgrounds/USMap-full.png",  data: "0,0"	 },
+			{	id: "background-states-borders",   src: path + "assets/backgrounds/usMap-states-borders.png",  data: "0,0"	 },
 		];
 	
 	var states = 
