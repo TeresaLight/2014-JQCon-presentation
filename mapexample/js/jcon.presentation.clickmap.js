@@ -6,6 +6,10 @@ jQuery(document).ready(function(){
 
 	// The preloader
 	var loadingBarContainer;
+	var loadingBar;
+
+	// Base path to the relative assets
+	var path = '';
 	
 	/***********************************
 	 * Define all arrays for the assets
@@ -14,13 +18,13 @@ jQuery(document).ready(function(){
 	// array for the images of the backgrounds
 	var backgrounds = 
 	[
-		{	id: "background-borders",	src: path + "assets/backgrounds/mapBorders.png",  data: "0,0"	 },
-		{	id: "background-borders-names",      src: path + "assets/backgrounds/mapBordersNames.png",  data: "0,0"	 },
-		{	id: "background-full",   src: path + "assets/backgrounds/mapFull.png",  data: "0,0"	 },
-		{	id: "background-names",   src: path + "assets/backgrounds/mapNames.png",  data: "0,0"	 },
-		{	id: "background-shapes-borders",   src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
+		{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
+		{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
+		{	id: "background-full",   			src: path + "assets/backgrounds/mapFull.png", 			data: "0,0"	 },
+		{	id: "background-names",   			src: path + "assets/backgrounds/mapNames.png",  		data: "0,0"	 },
+		{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
 	];
-	console.log ('Teresa was here'); 
+
 	// Define array for the images of the shapes
 	var shapes = 
 	[	
@@ -62,8 +66,11 @@ jQuery(document).ready(function(){
 
 		// if Canvas is supported, go to work
 		if(isCanvasSupported()){
+
 			canvas = document.getElementById("shapeMap");
 			stage = new createjs.Stage(canvas);
+
+			stage.update();
 
 			// enable hover events
 			stage.enableMouseOver();
@@ -71,7 +78,6 @@ jQuery(document).ready(function(){
 			// preload everything by calling the function
 			preLoadAssets();  
 			
-			stage.update();	
 		}
 	}
 
@@ -113,7 +119,7 @@ jQuery(document).ready(function(){
 
 		//adding the container with the elements to our stage
 	    stage.addChild(loadingBarContainer);
-
+		stage.update();
 	    //creating the loading queue and the events for progress and completion
 		preload = new createjs.LoadQueue(false);
 
@@ -124,8 +130,8 @@ jQuery(document).ready(function(){
 		// Concatanate all the assets arrays
 
 		// Preload them
-		preload.loadManifest(assets);
-		stage.update();
+		preload.loadManifest(backgrounds);
+		
 	}
 	
 	/********************************
@@ -136,7 +142,7 @@ jQuery(document).ready(function(){
 
 		
 		loadingBar.scaleX = preload.progress * loadingBarWidth;
-		
+
 		stage.update();
 	}
 
@@ -148,7 +154,7 @@ jQuery(document).ready(function(){
 
 		//remove progress bar
 		stage.removeChild(loadProgressLabel, loadingBarContainer);
-
+ 
 		//update stage
 		stage.update();
 
