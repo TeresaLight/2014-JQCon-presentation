@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 	*   The elements that will be 
 	*	used throughout the code
 	*   JPS 07/15/2013
-	*	TML 02/07/2014 Customized data and paths for use on US Map Program
+	*	TML 02/07/2014 Customized all data and paths to align with Teresa's graphics and paths
 	*********************************/
 
 	//console.log('Loaded CEW4US Map');
@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
 		[
 			{	id: "background",       	src: pluginpath + "assets/backgrounds/uaMap-states-borders",  data: "0,0"	 },
 		];
-
+	
 	var states = 
 		[	
 
@@ -277,9 +277,8 @@ jQuery(document).ready(function(){
 //			{	id: "wyoming-name", 		src: pluginpath + "assets/names/wyoming-n.png", 			data: "383.601,135.683"  },
 			{	id: "wyoming-state", 		src: pluginpath + "assets/states/wyoming-s.png", 			data: "383.601,135.683"  },																				
 			{	id: "wyoming-overlay", 		src: pluginpath + "assets/overlays/wyoming-o.png", 			data: "383.601,135.683"  },																				
-//
-
 		];//    ^^   ID of the          	^^^  Relative location of assets					^^^   X,Y cordinates
+
 
 	/**		var circles =
 		[
@@ -354,8 +353,10 @@ jQuery(document).ready(function(){
 			
 			//adding our files to the queue
 			//preload.loadFile({id: "background", src:"images/background.jpg"});
+
+			assets.length = 0; // initialize the array -- Added by Teresa 2/2014
 			var assets = background.concat(states);
-			var assets = assets.concat(circles);
+//			var assets = assets.concat(circles); // commented this out - Teresa Light 2014 02, not using this
 
 			preload.loadManifest(assets);
 			preload.loadFile({id: "instructions", src: pluginpath + "assets/instructions.png"});
