@@ -1,28 +1,22 @@
 jQuery(document).ready(function(){
 
-	//console.log = function() {};
-	/** Globals *********************
-	*   The elements that will be 
-	*	used throughout the code
-	*   JPS 07/15/2013
-	*	TML 02/07/2014 Customized all data and paths to align with Teresa's graphics and paths
-	*********************************/
-
-	//console.log('Loaded CEW4US Map');
+	/** Add this later**/
 
 	var stage;  						// The Actual Stage
 	var loadingBarContainer;			// The Preloader
 	var instructionsImage;
 	var stateHovered = new Array();		// Array to hold elements currently hidden
 
-	var pluginpath = jQuery('#pluginpath').val();
+	var pluginpath = '';
 	var siteURL = jQuery('#siteURL').val();
 
-	//console.log(pluginpath);
-	//Sets up the data for each polygon
-	var background = 
+	//Sets up the data 
+	var backgrounds = 
 		[
-			{	id: "background",       	src: pluginpath + "assets/backgrounds/uaMap-states-borders",  data: "0,0"	 },
+			{	id: "background-borders",	src: pluginpath + "assets/backgrounds/USMap-borders",  data: "0,0"	 },
+			{	id: "background-borders-names",      src: pluginpath + "assets/backgrounds/USMap-borders-names",  data: "0,0"	 },
+			{	id: "background-full",   src: pluginpath + "assets/backgrounds/USMap-full",  data: "0,0"	 },
+			{	id: "background-states-borders",   src: pluginpath + "assets/backgrounds/USMap-states-borders",  data: "0,0"	 },
 		];
 	
 	var states = 
@@ -59,14 +53,14 @@ jQuery(document).ready(function(){
 			{	id: "colorado-overlay", 	src: pluginpath + "assets/overlays/colorado-o.png", 		data: "399.892,212.478"  },																				
 //
 //		conneticut
-//			{	id: "conneticut-name", 		src: pluginpath + "assets/names/conneticut-n.png", 			data: "892.382,169.49"  },
-			{	id: "conneticut-state", 	src: pluginpath + "assets/states/conneticut-s.png", 		data: "892.382,169.49"  },																				
-			{	id: "conneticut-overlay", 	src: pluginpath + "assets/overlays/conneticut-o.png", 		data: "892.382,169.49"  },																				
+//			{	id: "conneticut-name", 		src: pluginpath + "assets/names/connecticut-n.png", 			data: "892.382,169.49"  },
+			{	id: "conneticut-state", 	src: pluginpath + "assets/states/connecticut-s.png", 		data: "892.382,169.49"  },																				
+			{	id: "conneticut-overlay", 	src: pluginpath + "assets/overlays/connecticut-o.png", 		data: "892.382,169.49"  },																				
 //
 //		deleware
-//			{	id: "deleware-name", 		src: pluginpath + "assets/names/deleware-n.png", 			data: "870.169,219.873"  },
-			{	id: "deleware-state", 		src: pluginpath + "assets/states/deleware-s.png", 			data: "870.169,219.873"  },																			
-			{	id: "deleware-overlay", 	src: pluginpath + "assets/overlays/deleware-o.png", 		data: "870.169,219.873"  },																			
+//			{	id: "deleware-name", 		src: pluginpath + "assets/names/delaware-n.png", 			data: "870.169,219.873"  },
+			{	id: "deleware-state", 		src: pluginpath + "assets/states/delaware-s.png", 			data: "870.169,219.873"  },																			
+			{	id: "deleware-overlay", 	src: pluginpath + "assets/overlays/delaware-o.png", 		data: "870.169,219.873"  },																			
 //
 //		florida
 //			{	id: "florida-name", 		src: pluginpath + "assets/names/florida-n.png", 			data: "719.041	399.933"  },
@@ -129,9 +123,9 @@ jQuery(document).ready(function(){
 			{	id: "maine-overlay", 		src: pluginpath + "assets/overlays/maryland-o.png", 		data: "819.403,222.965"  },																				
 //
 //		massachusettes
-//			{	id: "massachusettes-name", 			src: pluginpath + "assets/names/massachusettes-n.png", 		data: "891.723,150.956"  },
-			{	id: "massachusettes-state", 		src: pluginpath + "assets/states/massachusettes-s.png", 	data: "891.723,150.956"  },																				
-			{	id: "massachusettes-overlay", 		src: pluginpath + "assets/overlays/massachusettes-o.png", 	data: "891.723,150.956"  },																				
+//			{	id: "massachusettes-name", 			src: pluginpath + "assets/names/massachusetts-n.png", 		data: "891.723,150.956"  },
+			{	id: "massachusettes-state", 		src: pluginpath + "assets/states/massachusetts-s.png", 	data: "891.723,150.956"  },																				
+			{	id: "massachusettes-overlay", 		src: pluginpath + "assets/overlays/massachusetts-o.png", 	data: "891.723,150.956"  },																				
 //
 //		michigan
 //			{	id: "michigan-name", 		src: pluginpath + "assets/names/michigan-n.png", 			data: "661.354,104.954"  },
@@ -199,9 +193,9 @@ jQuery(document).ready(function(){
 			{	id: "northdakota-overlay", 	src: pluginpath + "assets/overlays/northdakota-o.png", 		data: "487.926,75.911"  },																				
 //
 //		oaklahoma
-//			{	id: "oaklahoma-name", 		src: pluginpath + "assets/names/oaklahoma-n.png", 			data: "486.325,295.367"  },
-			{	id: "oaklahoma-state", 		src: pluginpath + "assets/states/oaklahoma-s.png", 			data: "486.325,295.367"  },																				
-			{	id: "oaklahoma-overlay", 	src: pluginpath + "assets/overlays/oaklahoma-o.png", 		data: "486.325,295.367"  },																			
+//			{	id: "oaklahoma-name", 		src: pluginpath + "assets/names/oklahoma-n.png", 			data: "486.325,295.367"  },
+			{	id: "oaklahoma-state", 		src: pluginpath + "assets/states/oklahoma-s.png", 			data: "486.325,295.367"  },																				
+			{	id: "oaklahoma-overlay", 	src: pluginpath + "assets/overlays/oklahoma-o.png", 		data: "486.325,295.367"  },																			
 //
 //		ohio
 //			{	id: "ohio-name", 			src: pluginpath + "assets/names/ohio-n.png", 				data: "741.73,193.881"  },
@@ -354,7 +348,6 @@ jQuery(document).ready(function(){
 			//adding our files to the queue
 			//preload.loadFile({id: "background", src:"images/background.jpg"});
 
-			assets.length = 0; // initialize the array -- Added by Teresa 2/2014
 			var assets = background.concat(states);
 //			var assets = assets.concat(circles); // commented this out - Teresa Light 2014 02, not using this
 
