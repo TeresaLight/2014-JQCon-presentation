@@ -33,7 +33,7 @@ jQuery(document).ready(function(){
 		{	id: "alaska-shape", 			src: path + "assets/shapes/alaska-s.png", 			data: "18,417"   },																																								
 		{	id: "arizona-shape", 			src: path + "assets/shapes/arizona-s.png", 			data: "301,273"  },																																							
 		{	id: "arkansas-shape", 			src: path + "assets/shapes/arkansas-s.png", 		data: "609,308"  },
-		{	id: "california-shape", 		src: path + "assets/shapes/california-s.png", 		data: "204.071,148.278"  },																				
+		{	id: "california-shape", 		src: path + "assets/shapes/california-s.png", 		data: "168,122"  },																				
 		{	id: "colorado-shape", 			src: path + "assets/shapes/colorado-s.png", 		data: "399.892,212.478"  },																				
 		{	id: "conneticut-shape", 		src: path + "assets/shapes/connecticut-s.png", 		data: "892.382,169.49"   },																				
 		{	id: "delaware-shape", 			src: path + "assets/shapes/delaware-s.png", 		data: "870.169,219.873"  },																			
@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
 		{	id: "louisiana-shape", 			src: path + "assets/shapes/louisiana-s.png", 		data: "617.849,372.586"  },																			
 		{	id: "maine-shape", 				src: path + "assets/shapes/maine-s.png", 			data: "909.128,63.723"   },																			
 		{	id: "maryland-shape", 			src: path + "assets/shapes/maryland-s.png", 		data: "819.403,222.965"  },																				
-		{	id: "massachusettes-shape", 	src: path + "assets/shapes/massachusetts-s.png", 	data: "891.723,150.956"  },																				
+		{	id: "massachusettes-shape", 	src: path + "assets/shapes/massachusettes-s.png", 	data: "891.723,150.956"  },																				
 		{	id: "michigan-shape", 			src: path + "assets/shapes/michigan-s.png", 		data: "661.354,104.954"  },																				
 		{	id: "minnesota-shape", 			src: path + "assets/shapes/minnesota-s.png", 		data: "575.956,73.311"   },																				
 		{	id: "mississippi-shape", 		src: path + "assets/shapes/mississippi-s.png", 		data: "655.614,333.363"  },																				
@@ -88,7 +88,7 @@ jQuery(document).ready(function(){
 		{	id: "alaska-overlay", 			src: path + "assets/overlays/alaska-o.png", 		data: "18.529,416.641"   },																																								
 		{	id: "arizona-overlay", 			src: path + "assets/overlays/arizona-o.png", 		data: "301.455,272.605"  },																																							
 		{	id: "arkansas-overlay", 		src: path + "assets/overlays/arkansas-o.png", 		data: "608.949,307.643"  },																																						
-		{	id: "california-overlay", 		src: path + "assets/overlays/california-o.png", 	data: "204.071,148.278"  },																				
+		{	id: "california-overlay", 		src: path + "assets/overlays/california-o.png", 	data: "168,122"  },																				
 		{	id: "colorado-overlay", 		src: path + "assets/overlays/colorado-o.png", 		data: "399.892,212.478"  },																				
 		{	id: "conneticut-overlay", 		src: path + "assets/overlays/connecticut-o.png", 	data: "892.382,169.49"   },																				
 		{	id: "delaware-overlay", 		src: path + "assets/overlays/delaware-o.png", 		data: "870.169,219.873"  },																			
@@ -365,12 +365,8 @@ jQuery(document).ready(function(){
 			bitMapImage.y = coordinates[1];
 			
 
-			container.addChild(bitMapImage);
+			stage.addChild(bitMapImage);
 		}
-
-		container.scaleX = .1986;
-		container.scaleY = .1986;
-		stage.addChild(container);
 
 		stage.update();
 
