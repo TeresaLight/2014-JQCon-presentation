@@ -1,0 +1,128 @@
+/* General Styles */
+	.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p {
+		font-family: 'Ubuntu', sans-serif;
+	}
+
+	.reveal h1{
+		font-size: 62px;
+	}
+
+	.reveal h2{
+		font-size: 48px;
+	}
+
+	.reveal h2.text-white{
+		color:white;
+	}
+
+	address{
+		margin-top: 200px;
+		text-align: left;
+	}
+
+	/* Sudo Grid/Layout Formating */
+	.content-left-60{
+		width:60%;
+		float:left;
+	}
+	.content-left-40{
+		width:40%;
+		float:left;
+	}
+
+	.content-left-20{
+		width:20%;
+		float:left;
+	}
+
+	.content-left-80{
+		width:80%;
+		float:left;
+	}
+
+	.content-right-60{
+		width:60%;
+		float:right;
+	}
+
+	.content-right-40{
+		width:40%;
+		float:right;
+	}
+
+	.content-right-20{
+		width:20%;
+		float:right;
+	}
+
+	.content-right-80{
+		width:80%;
+		float:right;
+	}
+	
+
+	/* Josh's Bio Slide*/
+	
+	.reveal #josh-bio img{
+		max-width: 70%;
+					
+	}
+	
+	.reveal #josh-bio h2{
+		font-size: 48px;
+
+	}
+
+	.reveal #josh-bio p{
+		font-size: 24px;
+		text-align: left;
+	}
+
+	/* Teresa's Bio Slide*/
+	
+	.reveal #teresa-bio img{
+		max-width: 100%;
+					
+	}
+	
+	.reveal #teresa-bio h2{
+		font-size: 48px;
+
+	}
+
+	.reveal #teresa-bio p{
+		margin-left:40px;
+		font-size: 24px;
+		text-align: left;
+	}
+
+	#case-study select{
+		font-size: 18px;
+		height: 565px;
+		width: 100%;
+		text-align: left;
+	}
+
+	#case-study .solution-a h2{
+		background-color: white;
+		padding:20px;
+	}
+
+	#case-study .state-links{
+		padding-bottom: 20px;
+		background-color: white;
+	}
+
+	#case-study .state-links li{
+		list-style: none;
+		width:30%;
+		margin:.25% 1.5%;
+		float:left;
+		display:block;
+		height:30px;
+	}
+
+	#case-study .state-links li a{
+		font-size: 16px;
+		font-weight: bolder;
+	}
