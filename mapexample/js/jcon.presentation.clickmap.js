@@ -4,6 +4,7 @@ jQuery(document).ready(function(){
 	var stage;
 	var canvas;
 	var preload;
+	var hoveredElements = new Array ();  //creating an array of elements that are currently hovered on
 
 	// The preloader
 	var loadingBarContainer;
@@ -49,7 +50,7 @@ jQuery(document).ready(function(){
 		{	id: "louisiana-shape", 			src: path + "assets/shapes/louisiana-s.png", 		data: "617.849,372.586"  },																			
 		{	id: "maine-shape", 				src: path + "assets/shapes/maine-s.png", 			data: "909.128,63.723"   },																			
 		{	id: "maryland-shape", 			src: path + "assets/shapes/maryland-s.png", 		data: "819.403,222.965"  },																				
-		{	id: "massachusettes-shape", 	src: path + "assets/shapes/massachusettes-s.png", 	data: "891.723,150.956"  },																				
+		{	id: "massachusetts-shape", 		src: path + "assets/shapes/massachusetts-s.png", 	data: "891.723,150.956"  },																				
 		{	id: "michigan-shape", 			src: path + "assets/shapes/michigan-s.png", 		data: "661.354,104.954"  },																				
 		{	id: "minnesota-shape", 			src: path + "assets/shapes/minnesota-s.png", 		data: "575.956,73.311"   },																				
 		{	id: "mississippi-shape", 		src: path + "assets/shapes/mississippi-s.png", 		data: "655.614,333.363"  },																				
@@ -216,7 +217,7 @@ jQuery(document).ready(function(){
 
 		//Concatonate all the arrays
 		var assets = backgrounds.concat(shapes).concat(overlays).concat(names);
-		console.log ('All Arrays Concatonated', assets); 
+		console.log ('All Arrays Concatonated', assets); //See how we are building the array
 
 		// if Canvas is supported, go to work
 		if(isCanvasSupported()){
@@ -348,28 +349,6 @@ jQuery(document).ready(function(){
 
 		stage.update();
 
-		//put the shapes array on the Stage
-
-		for (var counter = 0; counter < shapes.length; counter ++){
-
-			//go through the array to find the object in memory that matches the id
-			var preloadedImage = preload.getResult(shapes[counter].id);
-
-			//pass the reference in memory to the function to return a bit map object
-			var bitMapImage = new createjs.Bitmap(preloadedImage);
-
-			// Get the string that is in data and turn it into an array.
-			var coordinates = shapes[counter].data.split(',');
-
-			bitMapImage.x = coordinates[0];
-			bitMapImage.y = coordinates[1];
-			
-
-			stage.addChild(bitMapImage);
-		}
-
-		stage.update();
-
 		//put the overlays array objects on the stage
 
 		for (var counter = 0; counter < overlays.length; counter ++){
@@ -385,9 +364,32 @@ jQuery(document).ready(function(){
 
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
-
+			bitMapImage.addEventListener('mouseout',handleStateMouseOut);
 			stage.addChild(bitMapImage);
 		}
+
+		stage.update();
+
+		//put the shapes array on the Stage -- they are on top and will fade down on mouse in
+
+		for (var counter = 0; counter < shapes.length; counter ++){
+
+			//go through the array to find the object in memory that matches the id
+			var preloadedImage = preload.getResult(shapes[counter].id);
+
+			//pass the reference in memory to the function to return a bit map object
+			var bitMapImage = new createjs.Bitmap(preloadedImage);
+
+			// Get the string that is in data and turn it into an array.
+			var coordinates = shapes[counter].data.split(',');
+
+			bitMapImage.x = coordinates[0];
+			bitMapImage.y = coordinates[1];
+			bitMapImage.addEventListener('mouseover',handleStateMouseIn);
+			
+			stage.addChild(bitMapImage);
+		}
+
 		stage.update();
 
 		//put the names array objects on the stage
@@ -415,6 +417,15 @@ jQuery(document).ready(function(){
 	
 	function handleStateMouseOut(e){
 
+		// Do a for loop on hoveredElements array
+		// On each iteration of the loop, add the element to the stage
+		// At the end of the loop, reset the array
+	
+		for (var counter = 0; counter < hoveredElements.length; counter ++){
+			stage.addChild(hoveredElements[counter]);
+		}
+
+		hoveredElements = new Array(); 
 
 		stage.update();
 	}
@@ -422,19 +433,23 @@ jQuery(document).ready(function(){
 		
 	
 	function handleStateMouseIn(e){
-
 		
+		console.log ('Teresa was in MouseIn'); 
+		console.log ('All Arrays Concatonated', hoveredElements); //See how we are building the array
+		hoveredElements.push(e.target);
+		stage.removeChild(e.target);
 		stage.update();
 	}
 
 	
-	function handleStateClick(e){
+	function handleStateClick(e){s
 
 		stage.update();
 
 	};
 
-	//Do what you love...Love what you do!
+	//Do what you love...Love what you do!...PixelHeartApps
+
 	jQuery(document).ready(function($) {
 		init();
 
@@ -443,3 +458,4 @@ jQuery(document).ready(function(){
 
 // In each function, update the stage. 
 //	console.log ('Teresa was here'); 
+// I am manually telling it when to update the stage.  I can set an event to update the stage every event or computer tick.  This would be for a game and not this app.
