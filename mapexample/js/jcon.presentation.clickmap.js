@@ -3,6 +3,7 @@ jQuery(document).ready(function(){
 	// This is going to store our references to the canvas that we define as the stage
 	var stage;
 	var canvas;
+	var preload;
 
 	// The preloader
 	var loadingBarContainer;
@@ -19,24 +20,24 @@ jQuery(document).ready(function(){
 	var backgrounds = 
 	[
 		{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
-		{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
-		{	id: "background-full",   			src: path + "assets/backgrounds/mapFull.png", 			data: "0,0"	 },
-		{	id: "background-names",   			src: path + "assets/backgrounds/mapNames.png",  		data: "0,0"	 },
-		{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
+	//	{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
+	//	{	id: "background-full",   			src: path + "assets/backgrounds/mapFull.png", 			data: "0,0"	 },
+	//	{	id: "background-names",   			src: path + "assets/backgrounds/mapNames.png",  		data: "0,0"	 },
+	//	{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
 	];
 
 	// Define array for the images of the shapes
 	var shapes = 
 	[	
-		{	id: "alabama-shape", 			src: path + "assets/shapes/alabama-s.png", 			data: "704.678,330.104"  },																																						
-		{	id: "alaska-shape", 			src: path + "assets/shapes/alaska-s.png", 			data: "18.529,416.641"   },																																								
-		{	id: "arizona-shape", 			src: path + "assets/shapes/arizona-s.png", 			data: "301.455,272.605"  },																																							
-		{	id: "arkansas-shape", 			src: path + "assets/shapes/arkansas-s.png", 		data: "608.949,307.643"  },
+		{	id: "alabama-shape", 			src: path + "assets/shapes/alabama-s.png", 			data: "705,330"  },																																						
+		{	id: "alaska-shape", 			src: path + "assets/shapes/alaska-s.png", 			data: "18,417"   },																																								
+		{	id: "arizona-shape", 			src: path + "assets/shapes/arizona-s.png", 			data: "301,273"  },																																							
+		{	id: "arkansas-shape", 			src: path + "assets/shapes/arkansas-s.png", 		data: "609,308"  },
 		{	id: "california-shape", 		src: path + "assets/shapes/california-s.png", 		data: "204.071,148.278"  },																				
 		{	id: "colorado-shape", 			src: path + "assets/shapes/colorado-s.png", 		data: "399.892,212.478"  },																				
 		{	id: "conneticut-shape", 		src: path + "assets/shapes/connecticut-s.png", 		data: "892.382,169.49"   },																				
 		{	id: "delaware-shape", 			src: path + "assets/shapes/delaware-s.png", 		data: "870.169,219.873"  },																			
-		{	id: "florida-shape", 			src: path + "assets/shapes/florida-s.png", 			data: "719.041	399.933" },																			
+		{	id: "florida-shape", 			src: path + "assets/shapes/florida-s.png", 			data: "719.041,399.933" },																			
 		{	id: "georgia-shape", 			src: path + "assets/shapes/georgia-s.png", 			data: "742.809,325.883"  },																			
 		{	id: "hawaii-shape", 			src: path + "assets/shapes/hawaii-s.png", 			data: "292.984,520.42"   },																			
 		{	id: "idaho-shape", 				src: path + "assets/shapes/idaho-s.png", 			data: "307.439,49.907"   },																				
@@ -91,7 +92,7 @@ jQuery(document).ready(function(){
 		{	id: "colorado-overlay", 		src: path + "assets/overlays/colorado-o.png", 		data: "399.892,212.478"  },																				
 		{	id: "conneticut-overlay", 		src: path + "assets/overlays/connecticut-o.png", 	data: "892.382,169.49"   },																				
 		{	id: "delaware-overlay", 		src: path + "assets/overlays/delaware-o.png", 		data: "870.169,219.873"  },																			
-		{	id: "florida-overlay", 			src: path + "assets/overlays/florida-o.png", 		data: "719.041	399.933" },																			
+		{	id: "florida-overlay", 			src: path + "assets/overlays/florida-o.png", 		data: "719.041,399.933" },																			
 		{	id: "georgia-overlay", 			src: path + "assets/overlays/georgia-o.png", 		data: "742.809,325.883"  },																			
 		{	id: "hawaii-overlay", 			src: path + "assets/overlays/hawaii-o.png", 		data: "292.984,520.42"   },																			
 		{	id: "idaho-overlay", 			src: path + "assets/overlays/idaho-o.png", 			data: "307.439,49.907"   },																				
@@ -146,7 +147,7 @@ jQuery(document).ready(function(){
 		{	id: "colorado-name", 			src: path + "assets/names/colorado-n.png", 			data: "399.892,212.478"  },																				
 		{	id: "conneticut-name", 			src: path + "assets/names/connecticut-n.png", 		data: "892.382,169.49"   },																				
 		{	id: "delaware-name", 			src: path + "assets/names/delaware-n.png", 			data: "870.169,219.873"  },																			
-		{	id: "florida-name", 			src: path + "assets/names/florida-n.png", 			data: "719.041	399.933" },																			
+		{	id: "florida-name", 			src: path + "assets/names/florida-n.png", 			data: "719.041,399.933" },																			
 		{	id: "georgia-name", 			src: path + "assets/names/georgia-n.png", 			data: "742.809,325.883"  },																			
 		{	id: "hawaii-name", 				src: path + "assets/names/hawaii-n.png", 			data: "292.984,520.42"   },																			
 		{	id: "idaho-name", 				src: path + "assets/names/idaho-n.png", 			data: "307.439,49.907"   },																				
@@ -273,6 +274,7 @@ jQuery(document).ready(function(){
 		//adding the container with the elements to our stage
 	    stage.addChild(loadingBarContainer);
 		stage.update();
+
 	    //creating the loading queue and the events for progress and completion
 		preload = new createjs.LoadQueue(false);
 
@@ -322,6 +324,93 @@ jQuery(document).ready(function(){
  	 ********************/
 	function start() {
 
+		var container = new createjs.Container(); 
+
+
+		//Put the background images on the stage
+		for (var counter = 0; counter < backgrounds.length; counter ++){
+
+			//go through the array to find the object in memory that matches the id
+			var preloadedImage = preload.getResult(backgrounds[counter].id);
+
+			//pass the reference in memory to the function to return a bit map object
+			var bitMapImage = new createjs.Bitmap(preloadedImage);
+
+			// Get the string that is in data and turn it into an array.
+			// Whereever there is comma that starts a new index of the array.
+			var coordinates = backgrounds[counter].data.split(',');
+
+			bitMapImage.x = coordinates[0];
+			bitMapImage.y = coordinates[1];
+
+			stage.addChild(bitMapImage);
+		}
+
+		stage.update();
+
+		//put the shapes array on the Stage
+
+		for (var counter = 0; counter < shapes.length; counter ++){
+
+			//go through the array to find the object in memory that matches the id
+			var preloadedImage = preload.getResult(shapes[counter].id);
+
+			//pass the reference in memory to the function to return a bit map object
+			var bitMapImage = new createjs.Bitmap(preloadedImage);
+
+			// Get the string that is in data and turn it into an array.
+			var coordinates = shapes[counter].data.split(',');
+
+			bitMapImage.x = coordinates[0];
+			bitMapImage.y = coordinates[1];
+			
+
+			container.addChild(bitMapImage);
+		}
+
+		container.scaleX = .1986;
+		container.scaleY = .1986;
+		stage.addChild(container);
+
+		stage.update();
+
+		//put the overlays array objects on the stage
+
+		for (var counter = 0; counter < overlays.length; counter ++){
+
+			//go through the array to find the object in memory that matches the id
+			var preloadedImage = preload.getResult(overlays[counter].id);
+
+			//pass the reference in memory to the function to return a bit map object
+			var bitMapImage = new createjs.Bitmap(preloadedImage);
+
+			// Get the string that is in data and turn it into an array.
+			var coordinates = overlays[counter].data.split(',');
+
+			bitMapImage.x = coordinates[0];
+			bitMapImage.y = coordinates[1];
+
+			stage.addChild(bitMapImage);
+		}
+		stage.update();
+
+		//put the names array objects on the stage
+		for (var counter = 0; counter < names.length; counter ++){
+
+			//go through the array to find the object in memory that matches the id
+			var preloadedImage = preload.getResult(names[counter].id);
+
+			//pass the reference in memory to the function to return a bit map object
+			var bitMapImage = new createjs.Bitmap(preloadedImage);
+
+			// Get the string that is in data and turn it into an array.
+			var coordinates = shapes[counter].data.split(',');
+
+			bitMapImage.x = coordinates[0];
+			bitMapImage.y = coordinates[1];
+
+			stage.addChild(bitMapImage);
+		}
 		stage.update();
 
 	}
