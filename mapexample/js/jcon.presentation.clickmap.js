@@ -364,6 +364,7 @@ jQuery(document).ready(function(){
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
 			bitMapImage.addEventListener('mouseout',handleShapeMouseOut);
+			bitMapImage.addEventListener('click', handleShapeClick);
 			stage.addChild(bitMapImage);
 		}
 
@@ -385,14 +386,14 @@ jQuery(document).ready(function(){
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
 
-			// Add the Event Listener
+			// Add the Event Listeners
 			bitMapImage.addEventListener('mouseover', handleShapeMouseIn);
 			stage.addChild(bitMapImage);
 		}
 
 		stage.update();
 
-		//put the names array objects on the stage
+/*		//put the names array objects on the stage
 		for (var counter = 0; counter < names.length; counter ++){
 
 			//go through the array to find the object in memory that matches the id
@@ -407,13 +408,10 @@ jQuery(document).ready(function(){
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
 
-			// Add the Event Listener
-			bitMapImage.addEventListener('click', handleShapeClick);
-
 			stage.addChild(bitMapImage);
 		}
 		stage.update();
-
+*/
 	}
 
 
@@ -449,10 +447,6 @@ jQuery(document).ready(function(){
 		 
 		console.log ('Teresa was in Click');
 		clickedElements.push(e.target);
-
-
-
-
 
 		var shapeLink = '';
 
