@@ -20,8 +20,8 @@ jQuery(document).ready(function(){
 	// array for the images of the backgrounds
 	var backgrounds = 
 	[
-	//	{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
-	{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
+		{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
+	//{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
 	//	{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
 	];
 
@@ -204,7 +204,7 @@ jQuery(document).ready(function(){
 	 * after document ready.
 	 *********/
 	function init() {
-		console.log ("Names Array: ", nameArray);
+		//console.log ("Names Array: ", nameArray);
 		// initialize the stage
 		
 		// see of the broswer supports Canvas
@@ -216,7 +216,7 @@ jQuery(document).ready(function(){
 		//Concatonate all the arrays
 //		var assets = backgrounds.concat(shapes).concat(overlays).concat(names);
 		var assets = backgrounds.concat(shapes).concat(overlays);
-		console.log ('All Arrays Concatonated', assets); //See how we are building the array
+//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
 
 		// if Canvas is supported, go to work
 		if(isCanvasSupported()){
@@ -363,7 +363,7 @@ jQuery(document).ready(function(){
 
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
-			bitMapImage.addEventListener('mouseout',handleStateMouseOut);
+			bitMapImage.addEventListener('mouseout',handleShapeMouseOut);
 			stage.addChild(bitMapImage);
 		}
 
@@ -384,8 +384,9 @@ jQuery(document).ready(function(){
 
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
-			bitMapImage.addEventListener('mouseover',handleStateMouseIn);
-			
+
+			// Add the Event Listener
+			bitMapImage.addEventListener('mouseover', handleShapeMouseIn);
 			stage.addChild(bitMapImage);
 		}
 
@@ -406,6 +407,9 @@ jQuery(document).ready(function(){
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
 
+			// Add the Event Listener
+			bitMapImage.addEventListener('click', handleShapeClick);
+
 			stage.addChild(bitMapImage);
 		}
 		stage.update();
@@ -414,7 +418,7 @@ jQuery(document).ready(function(){
 
 
 	
-	function handleStateMouseOut(e){
+	function handleShapeMouseOut(e){
 
 		// Do a for loop on hoveredElements array
 		// On each iteration of the loop, add the element to the stage
@@ -431,21 +435,39 @@ jQuery(document).ready(function(){
 
 		
 	
-	function handleStateMouseIn(e){
+	function handleShapeMouseIn(e){
 		
-		console.log ('Teresa was in MouseIn'); 
-		console.log ('All Arrays Concatonated', hoveredElements); //See how we are building the array
 		hoveredElements.push(e.target);
+
+		//console.log ('All Arrays Concatonated', hoveredElements); //See how we are building the array
 		stage.removeChild(e.target);
 		stage.update();
 	}
 
 	
-	function handleStateClick(e){s
+	function handleShapeClick(e){
+		 
+		console.log ('Teresa was in Click');
+		clickedElements.push(e.target);
 
-		stage.update();
 
-	};
+
+
+
+		var shapeLink = '';
+
+		for(var i=0; i < shapes.length; i++)
+		{		
+			if (shapes[i].bitmapID == e.target.id){
+				shapeLink = ((shapes[i].id).split('-over'))[0];
+			}
+		}
+
+		alert("clicked");
+		stage.removeChild(e.target);
+		stage.update();  
+
+	}
 
 	//Do what you love...Love what you do...Pixel Heart Apps.
 
@@ -457,4 +479,6 @@ jQuery(document).ready(function(){
 
 // In each function, update the stage. 
 //	console.log ('Teresa was here'); 
-// I am manually telling it when to update the stage.  I can set an event to update the stage every event or computer tick.  This would be for a game and not this app.
+// I am manually telling it when to update the stage.  
+//I can set an event to update the stage every event or computer tick.  
+//This would be for a game and not this app.
