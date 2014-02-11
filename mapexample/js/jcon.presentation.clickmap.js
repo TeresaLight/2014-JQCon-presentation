@@ -22,9 +22,6 @@ jQuery(document).ready(function(){
 	var backgrounds = 
 	[
 		{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/blank.png",  data: "0,0"	 },
-	//	{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
-	//	{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
-	//	{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
 	];
 
 	// Define array for the images of the shapes
@@ -85,120 +82,56 @@ jQuery(document).ready(function(){
 	// Define array for the images of the overlays
 	var overlays = 
 	[	
-		{	id: "alabama-overlay", 			src: path + "assets/overlays/alabama-o.png", 		data: "582,272", label: "Alabama"    },																																					
-		{	id: "alaska-overlay", 			src: path + "assets/overlays/alaska-o.png", 		data: "14,344",  label: "Alaska"     },																																								
-		{	id: "arizona-overlay", 			src: path + "assets/overlays/arizona-o.png", 		data: "249,225", label: "Arizona"    },																																							
-		{	id: "arkansas-overlay", 		src: path + "assets/overlays/arkansas-o.png", 		data: "503,254", label: "Arkansas"   },																																						
-		{	id: "california-overlay", 		src: path + "assets/overlays/california-o.png", 	data: "168,122", label: "California" },																				
-		{	id: "colorado-overlay", 		src: path + "assets/overlays/colorado-o.png", 		data: "330,175", label: "Colorado"},																				
-		{	id: "conneticut-overlay", 		src: path + "assets/overlays/connecticut-o.png", 	data: "738,139", label: "Connecticut" },																				
-		{	id: "delaware-overlay", 		src: path + "assets/overlays/delaware-o.png", 		data: "720,182", label: "Delaware" },																			
-		{	id: "florida-overlay", 			src: path + "assets/overlays/florida-o.png", 		data: "595,330", label: "Florida" },																			
-		{	id: "georgia-overlay", 			src: path + "assets/overlays/georgia-o.png", 		data: "614,269", label: "Georgia" },																			
-		{	id: "hawaii-overlay", 			src: path + "assets/overlays/hawaii-o.png", 		data: "241,430", label: "Hawaii"},																			
-		{	id: "idaho-overlay", 			src: path + "assets/overlays/idaho-o.png", 			data: "254,40", label: "Idaho"  },																				
-		{	id: "illinois-overlay", 		src: path + "assets/overlays/illinois-o.png", 		data: "538,162", label: "Illinois" },																			
-		{	id: "indiana-overlay", 			src: path + "assets/overlays/indiana-o.png", 		data: "580,169", label: "Indiana" },																				
-		{	id: "iowa-overlay", 			src: path + "assets/overlays/iowa-o.png", 			data: "480,148" },																			
-		{	id: "kansas-overlay", 			src: path + "assets/overlays/kansas-o.png", 		data: "414,198" },																			
-		{	id: "kentucky-overlay", 		src: path + "assets/overlays/kentucky-o.png", 		data: "566,209" },																			
-		{	id: "louisiana-overlay", 		src: path + "assets/overlays/louisiana-o.png", 		data: "510,308" },																			
-		{	id: "maine-overlay", 			src: path + "assets/overlays/maine-o.png", 			data: "752,52"  },																			
-		{	id: "maryland-overlay", 		src: path + "assets/overlays/maryland-o.png", 		data: "677,184" },																				
-		{	id: "massachusettes-overlay",	src: path + "assets/overlays/massachusetts-o.png", 	data: "738,125" },																				
-		{	id: "michigan-overlay", 		src: path + "assets/overlays/michigan-o.png", 		data: "547,86"  },																				
-		{	id: "minnesota-overlay", 		src: path + "assets/overlays/minnesota-o.png", 		data: "476,60"  },																				
-		{	id: "mississippi-overlay", 		src: path + "assets/overlays/mississippi-o.png", 	data: "542,275" },																				
-		{	id: "missouri-overlay", 		src: path + "assets/overlays/missouri-o.png", 		data: "489,192" },																				
-		{	id: "montana-overlay", 			src: path + "assets/overlays/montana-o.png", 		data: "284,42"  },																				
-		{	id: "nebraska-overlay", 		src: path + "assets/overlays/nebraska-o.png", 		data: "396,152" },																				
-		{	id: "nevada-overlay", 			src: path + "assets/overlays/nevada-o.png", 		data: "209,135" },																				
-		{	id: "newhampshire-overlay", 	src: path + "assets/overlays/newhampshire-o.png", 	data: "744,90"  },																				
-		{	id: "newjersey-overlay", 		src: path + "assets/overlays/newjersey-o.png", 		data: "722,157" },																				
-		{	id: "newmexico-overlay", 		src: path + "assets/overlays/newmexico-o.png", 		data: "317,236" },																				
-		{	id: "newyork-overlay", 			src: path + "assets/overlays/newyork-o.png", 		data: "668,100" },																				
-		{	id: "northcarolina-overlay", 	src: path + "assets/overlays/northcarolina-o.png", 	data: "630,230" },																				
-		{	id: "northdakota-overlay", 		src: path + "assets/overlays/northdakota-o.png", 	data: "403,62"  },																				
-		{	id: "oaklahoma-overlay", 		src: path + "assets/overlays/oklahoma-o.png", 		data: "402,244" },																				
-		{	id: "ohio-overlay", 			src: path + "assets/overlays/ohio-o.png", 			data: "613,159" },																				
-		{	id: "oregon-overlay", 			src: path + "assets/overlays/oregon-o.png", 		data: "177,62"  },																			
-		{	id: "pennsylvania-overlay", 	src: path + "assets/overlays/pennsylvania-o.png", 	data: "661,149" },																			
-		{	id: "rhodeisland-overlay", 		src: path + "assets/overlays/rhodeisland-o.png", 	data: "756,139" },																			
-		{	id: "southcarolina-overlay", 	src: path + "assets/overlays/southcarolina-o.png", 	data: "643,264" },																				
-		{	id: "southdakota-overlay", 		src: path + "assets/overlays/southdakota-o.png", 	data: "398,107" },																			
-		{	id: "tennessee-overlay", 		src: path + "assets/overlays/tennessee-o.png", 		data: "556,241" },																			
-		{	id: "texas-overlay", 			src: path + "assets/overlays/texas-o.png", 			data: "349,251" },																			
-		{	id: "utah-overlay", 			src: path + "assets/overlays/utah-o.png", 			data: "271,150" },																			
-		{	id: "vermont-overlay", 			src: path + "assets/overlays/vermont-o.png", 		data: "729,96"  },																				
-		{	id: "virginia-overlay", 		src: path + "assets/overlays/virginia-o.png", 		data: "635,193" },																			
-		{	id: "washington-overlay", 		src: path + "assets/overlays/washington-o.png", 	data: "199,25"  },																			
-		{	id: "westvirginia-overlay", 	src: path + "assets/overlays/westvirginia-o.png", 	data: "644,180" },																			
-		{	id: "wisconsin-overlay", 		src: path + "assets/overlays/wisconsin-o.png", 		data: "521,96"  },																			
-		{	id: "wyoming-overlay", 			src: path + "assets/overlays/wyoming-o.png", 		data: "316,111" },																																						
-	];
-
-	// Define array for the images of the names of the shapes
-	var names =
-	[	
-		{	id: "alabama-name", 			src: path + "assets/names/alabama-n.png", 			data: "588,306" },																																						
-		{	id: "alaska-name", 				src: path + "assets/names/alaska-n.png", 			data: "160,400" },																																								
-		{	id: "arizona-name", 			src: path + "assets/names/arizona-n.png", 			data: "276,268" },																																							
-		{	id: "arkansas-name", 			src: path + "assets/names/arkansas-n.png", 			data: "510,270" },																																						
-		{	id: "california-name", 			src: path + "assets/names/california-n.png", 		data: "190,220" },																				
-		{	id: "colorado-name", 			src: path + "assets/names/colorado-n.png", 			data: "360,200" },																				
-		{	id: "conneticut-name", 			src: path + "assets/names/connecticut-n.png", 		data: "640,315" },																				
-		{	id: "delaware-name", 			src: path + "assets/names/delaware-n.png", 			data: "735,190" },																			
-		{	id: "florida-name", 			src: path + "assets/names/florida-n.png", 			data: "665,366" },																			
-		{	id: "georgia-name", 			src: path + "assets/names/georgia-n.png", 			data: "635,310" },																			
-		{	id: "hawaii-name", 				src: path + "assets/names/hawaii-n.png", 			data: "320,460" },																			
-		{	id: "idaho-name", 				src: path + "assets/names/idaho-n.png", 			data: "270,120" },																				
-		{	id: "illinois-name", 			src: path + "assets/names/illinois-n.png", 			data: "550,190" },																			
-		{	id: "indiana-name", 			src: path + "assets/names/indiana-n.png", 			data: "600,190" },																				
-		{	id: "iowa-name", 				src: path + "assets/names/iowa-n.png", 				data: "500,160" },																			
-		{	id: "kansas-name", 				src: path + "assets/names/kansas-n.png", 			data: "440,220" },																			
-		{	id: "kentucky-name", 			src: path + "assets/names/kentucky-n.png", 			data: "600,230" },																			
-		{	id: "louisiana-name", 			src: path + "assets/names/louisiana-n.png", 		data: "520,339" },																			
-		{	id: "maine-name", 				src: path + "assets/names/maine-n.png", 			data: "760,82"  },																			
-		{	id: "maryland-name", 			src: path + "assets/names/maryland-n.png", 			data: "734,200" },																				
-		{	id: "massachusettes-name",		src: path + "assets/names/massachusetts-n.png", 	data: "768,130" },																				
-		{	id: "michigan-name", 			src: path + "assets/names/michigan-n.png", 			data: "597,145" },																				
-		{	id: "minnesota-name", 			src: path + "assets/names/minnesota-n.png", 		data: "482,98"  },																				
-		{	id: "mississippi-name", 		src: path + "assets/names/mississippi-n.png", 		data: "548,326" },																				
-		{	id: "missouri-name", 			src: path + "assets/names/missouri-n.png", 			data: "509,200" },																				
-		{	id: "montana-name", 			src: path + "assets/names/montana-n.png", 			data: "336,80"  },																				
-		{	id: "nebraska-name", 			src: path + "assets/names/nebraska-n.png", 			data: "430,170" },																				
-		{	id: "nevada-name", 				src: path + "assets/names/nevada-n.png", 			data: "230,180" },																				
-		{	id: "newhampshire-name", 		src: path + "assets/names/newhampshire-n.png", 		data: "768,115" },																				
-		{	id: "newjersey-name", 			src: path + "assets/names/newjersey-n.png", 		data: "740,140" },																				
-		{	id: "newmexico-name", 			src: path + "assets/names/newmexico-n.png", 		data: "340,275" },																				
-		{	id: "newyork-name", 			src: path + "assets/names/newyork-n.png", 			data: "690,138" },																				
-		{	id: "northcarolina-name", 		src: path + "assets/names/northcarolina-n.png", 	data: "660,249" },																				
-		{	id: "northdakota-name", 		src: path + "assets/names/northdakota-n.png", 		data: "415,80"  },																				
-		{	id: "oaklahoma-name", 			src: path + "assets/names/oklahoma-n.png", 			data: "450,264" },																				
-		{	id: "ohio-name", 				src: path + "assets/names/ohio-n.png", 				data: "629,186" },																				
-		{	id: "oregon-name", 				src: path + "assets/names/oregon-n.png", 			data: "210,98"  },																			
-		{	id: "pennsylvania-name", 		src: path + "assets/names/pennsylvania-n.png", 		data: "665,167" },																			
-		{	id: "rhodeisland-name", 		src: path + "assets/names/rhodeisland-n.png", 		data: "780,140" },																			
-		{	id: "southcarolina-name", 		src: path + "assets/names/southcarolina-n.png", 	data: "663,280" },																				
-		{	id: "southdakota-name", 		src: path + "assets/names/southdakota-n.png", 		data: "414,128" },																			
-		{	id: "tennessee-name", 			src: path + "assets/names/tennessee-n.png", 		data: "581,258" },																			
-		{	id: "texas-name", 				src: path + "assets/names/texas-n.png", 			data: "440,325" },																			
-		{	id: "utah-name", 				src: path + "assets/names/utah-n.png", 				data: "296,190" },																			
-		{	id: "vermont-name", 			src: path + "assets/names/vermont-n.png", 			data: "733,101" },																				
-		{	id: "virginia-name", 			src: path + "assets/names/virginia-n.png", 			data: "686,222" },																			
-		{	id: "washington-name", 			src: path + "assets/names/washington-n.png", 		data: "214,54"  },																			
-		{	id: "westvirginia-name", 		src: path + "assets/names/westvirginia-n.png", 		data: "658,201" },																			
-		{	id: "wisconsin-name", 			src: path + "assets/names/wisconsin-n.png", 		data: "531,128" },																			
-		{	id: "wyoming-name", 			src: path + "assets/names/wyoming-n.png", 			data: "342,143" },	
-	];
-
-	// This is the array that holds the names of the shapes
-	var nameArray = 
-	[	'alabama','alaska','arizona','arkansas','california','colorado','connecticut','delaware','florida','georgia',
-		'hawaii','idaho','illinois','indiana','iowa','kansas','kentucky','louisiana','maine','massachusettes','maryland',																		
-		'michigan','minnesota','mississippi','missouri','montana','nebraska','nevada','newhampshire','newjersey','newmexico',																			
-		'newyork','northcarolina','northdakota','oaklahoma','ohio','oregon','pennsylvania','rhodeisland','southcarolina','southdakota',
-		'tennessee','texas','utah','vermont','virginia','washington','westvirginia','wisconsin','wyoming',		 
+		{	id: "alabama-overlay", 			src: path + "assets/overlays/alabama-o.png", 		data: "582,272", label: "Alabama"    	},																																					
+		{	id: "alaska-overlay", 			src: path + "assets/overlays/alaska-o.png", 		data: "14,344",  label: "Alaska"     	},																																								
+		{	id: "arizona-overlay", 			src: path + "assets/overlays/arizona-o.png", 		data: "249,225", label: "Arizona"    	},																																							
+		{	id: "arkansas-overlay", 		src: path + "assets/overlays/arkansas-o.png", 		data: "503,254", label: "Arkansas"  	},																																						
+		{	id: "california-overlay", 		src: path + "assets/overlays/california-o.png", 	data: "168,122", label: "California" 	},																				
+		{	id: "colorado-overlay", 		src: path + "assets/overlays/colorado-o.png", 		data: "330,175", label: "Colorado"		},																				
+		{	id: "conneticut-overlay", 		src: path + "assets/overlays/connecticut-o.png", 	data: "738,139", label: "Connecticut" 	},																				
+		{	id: "delaware-overlay", 		src: path + "assets/overlays/delaware-o.png", 		data: "720,182", label: "Delaware" 		},																			
+		{	id: "florida-overlay", 			src: path + "assets/overlays/florida-o.png", 		data: "595,330", label: "Florida" 		},																			
+		{	id: "georgia-overlay", 			src: path + "assets/overlays/georgia-o.png", 		data: "614,269", label: "Georgia" 		},																			
+		{	id: "hawaii-overlay", 			src: path + "assets/overlays/hawaii-o.png", 		data: "241,430", label: "Hawaii"		},																			
+		{	id: "idaho-overlay", 			src: path + "assets/overlays/idaho-o.png", 			data: "254,40",  label: "Idaho"  		},																				
+		{	id: "illinois-overlay", 		src: path + "assets/overlays/illinois-o.png", 		data: "538,162", label: "Illinois" 		},																			
+		{	id: "indiana-overlay", 			src: path + "assets/overlays/indiana-o.png", 		data: "580,169", label: "Indiana" 		},																				
+		{	id: "iowa-overlay", 			src: path + "assets/overlays/iowa-o.png", 			data: "480,148", label: "Iowa"			},																			
+		{	id: "kansas-overlay", 			src: path + "assets/overlays/kansas-o.png", 		data: "414,198", label: "Kansas" 		},																			
+		{	id: "kentucky-overlay", 		src: path + "assets/overlays/kentucky-o.png", 		data: "566,209", label: "kentucky" 		},																			
+		{	id: "louisiana-overlay", 		src: path + "assets/overlays/louisiana-o.png", 		data: "510,308", label: "Louisiana"		},																			
+		{	id: "maine-overlay", 			src: path + "assets/overlays/maine-o.png", 			data: "752,52",  label: "Maine"			},																			
+		{	id: "maryland-overlay", 		src: path + "assets/overlays/maryland-o.png", 		data: "677,184", label: "Maryland"		},																			
+		{	id: "massachusettes-overlay",	src: path + "assets/overlays/massachusetts-o.png", 	data: "738,125", label: "Massachusetts"	},																				
+		{	id: "michigan-overlay", 		src: path + "assets/overlays/michigan-o.png", 		data: "547,86",  label: "Michigan"		},																			
+		{	id: "minnesota-overlay", 		src: path + "assets/overlays/minnesota-o.png", 		data: "476,60",  label: "Minnesota"		},																				
+		{	id: "mississippi-overlay", 		src: path + "assets/overlays/mississippi-o.png", 	data: "542,275", label: "Mississippi"	},																			
+		{	id: "missouri-overlay", 		src: path + "assets/overlays/missouri-o.png", 		data: "489,192", label: "Missouri"		},																				
+		{	id: "montana-overlay", 			src: path + "assets/overlays/montana-o.png", 		data: "284,42",  label: "Montana"		},																				
+		{	id: "nebraska-overlay", 		src: path + "assets/overlays/nebraska-o.png", 		data: "396,152", label: "Nebraska"		},																				
+		{	id: "nevada-overlay", 			src: path + "assets/overlays/nevada-o.png", 		data: "209,135", label: "Nevada"		},																				
+		{	id: "newhampshire-overlay", 	src: path + "assets/overlays/newhampshire-o.png", 	data: "744,90",  label: "New Hampshire"	},																				
+		{	id: "newjersey-overlay", 		src: path + "assets/overlays/newjersey-o.png", 		data: "722,157", label: "New Jersey"	},																				
+		{	id: "newmexico-overlay", 		src: path + "assets/overlays/newmexico-o.png", 		data: "317,236", label: "New Mexico"	},																				
+		{	id: "newyork-overlay", 			src: path + "assets/overlays/newyork-o.png", 		data: "668,100", label: "New York"		},																				
+		{	id: "northcarolina-overlay", 	src: path + "assets/overlays/northcarolina-o.png", 	data: "630,230", label: "North Carolina"},																				
+		{	id: "northdakota-overlay", 		src: path + "assets/overlays/northdakota-o.png", 	data: "403,62",  label: "North Dakota"	},																				
+		{	id: "oaklahoma-overlay", 		src: path + "assets/overlays/oklahoma-o.png", 		data: "402,244", label: "Oklahoma"		},																		
+		{	id: "ohio-overlay", 			src: path + "assets/overlays/ohio-o.png", 			data: "613,159", label: "Ohio"			},																				
+		{	id: "oregon-overlay", 			src: path + "assets/overlays/oregon-o.png", 		data: "177,62",  label: "Oregon"		},																			
+		{	id: "pennsylvania-overlay", 	src: path + "assets/overlays/pennsylvania-o.png", 	data: "661,149", label: "Pennsylvania"	},																			
+		{	id: "rhodeisland-overlay", 		src: path + "assets/overlays/rhodeisland-o.png", 	data: "756,139", label: "Rhodeisland"	},																			
+		{	id: "southcarolina-overlay", 	src: path + "assets/overlays/southcarolina-o.png", 	data: "643,264", label: "South Carolina"},																				
+		{	id: "southdakota-overlay", 		src: path + "assets/overlays/southdakota-o.png", 	data: "398,107", label: "South Dakota"	},																			
+		{	id: "tennessee-overlay", 		src: path + "assets/overlays/tennessee-o.png", 		data: "556,241", label: "Tennessee"		},																			
+		{	id: "texas-overlay", 			src: path + "assets/overlays/texas-o.png", 			data: "349,251", label: "Texas"			},																			
+		{	id: "utah-overlay", 			src: path + "assets/overlays/utah-o.png", 			data: "271,150", label: "Utah"			},																			
+		{	id: "vermont-overlay", 			src: path + "assets/overlays/vermont-o.png", 		data: "729,96",  label: "Vermont"		},																				
+		{	id: "virginia-overlay", 		src: path + "assets/overlays/virginia-o.png", 		data: "635,193", label: "Virginia"		},																			
+		{	id: "washington-overlay", 		src: path + "assets/overlays/washington-o.png", 	data: "199,25",  label: "Washington"	},																			
+		{	id: "westvirginia-overlay", 	src: path + "assets/overlays/westvirginia-o.png", 	data: "644,180", label: "West Virginia"	},																			
+		{	id: "wisconsin-overlay", 		src: path + "assets/overlays/wisconsin-o.png", 		data: "521,96",  label: "Wisconsin"		},																			
+		{	id: "wyoming-overlay", 			src: path + "assets/overlays/wyoming-o.png", 		data: "316,111", label: "Wyoming"		},																																						
 	];
 
 	/********************************
@@ -216,8 +149,7 @@ jQuery(document).ready(function(){
 		}
 
 		//Concatonate all the arrays
-		var assets = backgrounds.concat(shapes).concat(overlays).concat(names);
-//		var assets = backgrounds.concat(shapes).concat(overlays);
+		var assets = backgrounds.concat(shapes).concat(overlays);
 //		console.log ('All Arrays Concatonated', assets); //See how we are building the array
 
 		// if Canvas is supported, go to work
@@ -297,7 +229,6 @@ jQuery(document).ready(function(){
  	 ********************/	
 	function handleLoadProgress(e){
 
-		
 		loadingBar.scaleX = preload.progress * loadingBarWidth;
 
 		stage.update();
@@ -325,26 +256,6 @@ jQuery(document).ready(function(){
 	 * on the stage
  	 ********************/
 	function start() {
-
-		var container = new createjs.Container(); 
-//put the names array objects on the stage
-		for (var counter = 0; counter < names.length; counter ++){
-
-			//go through the array to find the object in memory that matches the id
-			var preloadedImage = preload.getResult(names[counter].id);
-
-			//pass the reference in memory to the function to return a bit map object
-			var bitMapImage = new createjs.Bitmap(preloadedImage);
-
-			// Get the string that is in data and turn it into an array.
-			var coordinates = shapes[counter].data.split(',');
-
-			bitMapImage.x = coordinates[0];
-			bitMapImage.y = coordinates[1];
-
-			stage.addChild(bitMapImage);
-		}
-		stage.update();
 
 		//Put the background images on the stage
 		for (var counter = 0; counter < backgrounds.length; counter ++){
@@ -470,12 +381,5 @@ jQuery(document).ready(function(){
 
 	jQuery(document).ready(function($) {
 		init();
-
 	});
 })
-
-// In each function, update the stage. 
-//	console.log ('Teresa was here'); 
-// I am manually telling it when to update the stage.  
-//I can set an event to update the stage every event or computer tick.  
-//This would be for a game and not this app.
