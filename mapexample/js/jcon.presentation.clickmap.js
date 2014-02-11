@@ -10,6 +10,7 @@ jQuery(document).ready(function(){
 	// The preloader
 	var loadingBarContainer;
 	var loadingBar;
+	var stateLabel;
 
 	// Base path to the relative assets
 	var path = '';
@@ -382,6 +383,7 @@ jQuery(document).ready(function(){
 
 			bitMapImage.x = coordinates[0];
 			bitMapImage.y = coordinates[1];
+			overlays[counter].bitmapID = bitMapImage.id;
 			bitMapImage.addEventListener('mouseout',handleShapeMouseOut);
 			bitMapImage.addEventListener('click', handleShapeClick);
 			stage.addChild(bitMapImage);
@@ -412,7 +414,26 @@ jQuery(document).ready(function(){
 
 		stage.update();
 
+		//Text Box for State Labels
+		var border = new createjs.Shape();
+		border.graphics.beginStroke("#3336699");
+		border.graphics.setStrokeStyle(1);
+		border.snapToPixel = true;
+		border.graphics.drawRect(0, 0, 200, 100);
+		border.x = 740;
+		border.y = 420;
+		stage.addChild(border);
+
+		stateLabel = new createjs.Text("", "18px Arial", "#3336699");
+		stateLabel.y = 445;
+    	stateLabel.x = 840;
+    	stateLabel.width= 200;
+    	stateLabel.textAlign = "center";
+		stage.addChild(stateLabel);
 		
+		stage.update();	
+
+		console.log('Overlays', overlays);	
 
 	}
 
@@ -450,18 +471,16 @@ jQuery(document).ready(function(){
 		console.log ('Teresa was in Click');
 
 		clickedElements.push(e.target);
-
-		var shapeLink = '';
-
-		for(var i=0; i < shapes.length; i++)
-		{		
-			if (shapes[i].bitmapID == e.target.id){
-				shapeLink = ((shapes[i].id).split('-over'))[0];
+		for(var counter = 0; counter < overlays.length; counter++)
+		{
+			if(overlays[counter].bitmapID === e.target.id){
+				stateLabel.text = overlays[counter].id;
 			}
 		}
+		
+	
+    	stage.addChild(stateLabel);
 
-		alert("clicked");
-		stage.removeChild(e.target);
 		stage.update();  
 
 	}
