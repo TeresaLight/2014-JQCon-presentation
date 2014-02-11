@@ -258,8 +258,7 @@ jQuery(document).ready(function(){
  	 ********************/
 	function start() {
 
-		createjs.Sound.registerSound({id:"tick", src:"assets/sounds.tap-play-3.wav"});
-
+		createjs.Sound.registerSound({id:"tick", src:"assets/sounds/tap-play-6.wav"});
 		//Put the background images on the stage
 		for (var counter = 0; counter < backgrounds.length; counter ++){
 
