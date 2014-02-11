@@ -345,8 +345,6 @@ jQuery(document).ready(function(){
 		
 		stage.update();	
 
-		console.log('Overlays', overlays);	
-
 	}
 
 
