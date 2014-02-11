@@ -10,7 +10,7 @@ jQuery(document).ready(function(){
 	// The preloader
 	var loadingBarContainer;
 	var loadingBar;
-	var stateLabel;
+	var shapeLabel;
 
 	// Base path to the relative assets
 	var path = '';
@@ -336,12 +336,12 @@ jQuery(document).ready(function(){
 		border.y = 420;
 		stage.addChild(border);
 
-		stateLabel = new createjs.Text("", "18px Arial", "#3336699");
-		stateLabel.y = 445;
-    	stateLabel.x = 840;
-    	stateLabel.width= 200;
-    	stateLabel.textAlign = "center";
-		stage.addChild(stateLabel);
+		shapeLabel = new createjs.Text("", "18px Arial", "#3336699");
+		shapeLabel.y = 445;
+    	shapeLabel.x = 840;
+    	shapeLabel.width= 200;
+    	shapeLabel.textAlign = "center";
+		stage.addChild(shapeLabel);
 		
 		stage.update();	
 
@@ -382,19 +382,19 @@ jQuery(document).ready(function(){
 	
 	function handleShapeClick(e){
 		 
-		console.log ('Teresa was in Click');
+		//console.log ('Teresa was in Click');
 
 		createjs.Sound.play("tick");
 		clickedElements.push(e.target);
 		for(var counter = 0; counter < overlays.length; counter++)
 		{
 			if(overlays[counter].bitmapID === e.target.id){
-				stateLabel.text = overlays[counter].label;
+				shapeLabel.text = overlays[counter].label;
 			}
 		}
 		
 	
-    	stage.addChild(stateLabel);
+    	stage.addChild(shapeLabel);
 
 		stage.update();  
 
