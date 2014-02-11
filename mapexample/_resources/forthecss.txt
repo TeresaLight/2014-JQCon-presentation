@@ -2,3 +2,16 @@
 font-family: 'Ubuntu', sans-serif;
 
 h1 { font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; }
+
+
+
+@font-face {font-family: 'SlatePro-Light';
+  src: url('webfonts/254487_0_0.eot');
+  src: url('webfonts/254487_0_0.eot?#iefix') format('embedded-opentype'),
+     url('webfonts/254487_0_0.woff') format('woff'),
+     url('webfonts/254487_0_0.ttf') format('truetype');
+}
+
+h1,h2,p{
+  font-family:'SlatePro-Light', "Slate Pro", Slate, "Myriad Pro","BBAlpha Sans",Helvetica;
+}
