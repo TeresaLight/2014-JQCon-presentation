@@ -461,7 +461,9 @@ jQuery(document).ready(function(){
 		hoveredElements.push(e.target);
 
 		//console.log ('All Arrays Concatonated', hoveredElements); //See how we are building the array
+		
 		stage.removeChild(e.target);
+
 		stage.update();
 	}
 
