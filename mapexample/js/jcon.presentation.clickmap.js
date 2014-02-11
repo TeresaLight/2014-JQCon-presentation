@@ -258,6 +258,8 @@ jQuery(document).ready(function(){
  	 ********************/
 	function start() {
 
+		createjs.Sound.registerSound({id:"tick", src:"assets/sounds.tap-play-3.wav"});
+
 		//Put the background images on the stage
 		for (var counter = 0; counter < backgrounds.length; counter ++){
 
@@ -383,11 +385,12 @@ jQuery(document).ready(function(){
 		 
 		console.log ('Teresa was in Click');
 
+		createjs.Sound.play("tick");
 		clickedElements.push(e.target);
 		for(var counter = 0; counter < overlays.length; counter++)
 		{
 			if(overlays[counter].bitmapID === e.target.id){
-				stateLabel.text = overlays[counter].id;
+				stateLabel.text = overlays[counter].label;
 			}
 		}
 		
