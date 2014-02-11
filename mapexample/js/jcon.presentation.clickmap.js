@@ -20,8 +20,9 @@ jQuery(document).ready(function(){
 	// array for the images of the backgrounds
 	var backgrounds = 
 	[
-		{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
-	//{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
+		{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/blank.png",  data: "0,0"	 },
+	//	{	id: "background-borders",			src: path + "assets/backgrounds/mapBorders.png",  		data: "0,0"	 },
+	//	{	id: "background-borders-names",     src: path + "assets/backgrounds/mapBordersNames.png",  	data: "0,0"	 },
 	//	{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/mapShapesBorders.png",  data: "0,0"	 },
 	];
 

@@ -1,8 +1,18 @@
 
+
+/*	Color Scheme 
+	#5b73b7 - coordinating purple 
+	#00ADEF - Hover, actual is #498fcd
+	#6DCFF6 - lighter blue
+	#3a66af	- Shape, actual is #336699
+	#a5ddf3	- Border - very light blue
+*/
+
 #shapeMap{
 	width:100%;
 	height:100%;
-	margin-bottom:20px;	
+	margin-bottom:20px;
+	border: 3px solid #5b73b7;
 }
 
 .button-group li{
