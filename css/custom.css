@@ -1,15 +1,14 @@
 /* Ubuntu Font*/
-@font-face
-{
+@font-face{
     font-family : "Ubuntu-R";
-    src: url('Ubuntu-R.woff');
+    src: url('fonts/Ubuntu/Ubuntu-R.ttf');
 }
 
 
  @font-face
 {
     font-family : "Ubuntu";
-    src: url('Ubuntu-B.woff');
+    src: url('fonts/Ubuntu/Ubuntu-B.ttf');
     font-weight : bold;
 }
 
@@ -17,7 +16,7 @@
 @font-face 
 {
     font-family : "Ubuntu";
-    src: url('Ubuntu-I.woff');
+    src: url('fonts/Ubuntu/Ubuntu-I.ttf');
     font-style : italic;
 }
 
@@ -25,7 +24,7 @@
 @font-face
 {
     font-family : "Ubuntu";
-    src: url('Ubuntu-BI.woff');
+    src: url('fonts/Ubuntu/Ubuntu-BI.ttf');
     font-weight : bold;
     font-style : italic;
 }
