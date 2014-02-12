@@ -7,6 +7,7 @@ jQuery(document).ready(function(){
 	var loadingBarContainer;
 	var loadingBar;
 	var shapeLabel;
+	var border;  //for the shape display box
 
 	// Base path to the relative assets
 	var path = '';
@@ -145,6 +146,7 @@ jQuery(document).ready(function(){
 	
 			//Concatonate all the arrays
 			var assets = backgrounds.concat(shapes).concat(overlays);
+
 	//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
 	
 			// if Canvas is supported, go to work
@@ -241,7 +243,7 @@ jQuery(document).ready(function(){
 			//update stage
 			stage.update();
 	
-			//Put everything together
+			//Put everything on the stage
 			start();
 	
 		}
@@ -252,10 +254,12 @@ jQuery(document).ready(function(){
 	 	 ********************/
 	 	 
 	 	function handleClick(event) {
+	 		createjs.Sound.play("tick-sound");  //play the sound
 	 		var container = event.currentTarget;
 	 		var image = event.target;
 	 		var label = container.label;
 			shapeLabel.text = label;
+			stage.addChild(border);
 	 	}
 	 	
 	 	function handleOver(event) {
@@ -268,7 +272,7 @@ jQuery(document).ready(function(){
 			 //container.getChildAt(1).alpha = 0;
 			 createjs.Tween.get(container.getChildAt(1)).to({alpha:0}, 500);
 			
-			shapeLabel.text = label;
+//			shapeLabel.text = label; //this brings up the name on hover versus click
 	 	}
 	 	
 	 	function handleOut(event) {
@@ -280,13 +284,15 @@ jQuery(document).ready(function(){
 			createjs.Tween.get(container.getChildAt(1)).to({alpha:1}, 500);
 			
 			var label = container.label;
-			shapeLabel.text = "";
+	//		shapeLabel.text = "";  //clears the box on mouse out
 	 	}
 	 	 
 		function start() {
 			
 			createjs.Ticker.addEventListener("tick", stage);
-			createjs.Sound.registerSound({id:"tick", src:"assets/sounds/tap-play-6.wav"});
+
+			createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tap-play-6.wav"});
+
 			//Put the background images on the stage
 			
 			var bitMapImage = new createjs.Bitmap(preload.getResult("background-shapes-borders"));
@@ -310,15 +316,15 @@ jQuery(document).ready(function(){
 				stage.addChild(container);
 			}
 	
-			//Text Box for State Labels
-			var border = new createjs.Shape();
+			//Text Box for Shape Labels
+			border = new createjs.Shape();
 			border.graphics.beginStroke("#3336699");
 			border.graphics.setStrokeStyle(1);
 			border.snapToPixel = true;
 			border.graphics.drawRect(0, 0, 200, 100);
 			border.x = 740;
 			border.y = 420;
-			stage.addChild(border);
+			
 	
 			shapeLabel = new createjs.Text("", "18px Arial", "#3336699");
 			shapeLabel.y = 445;
@@ -334,3 +340,5 @@ jQuery(document).ready(function(){
 		init();
 	});
 })
+
+
