@@ -1,3 +1,35 @@
+/* Ubuntu Font*/
+@font-face
+{
+    font-family : "Ubuntu-R";
+    src: url('Ubuntu-R.woff');
+}
+
+
+ @font-face
+{
+    font-family : "Ubuntu";
+    src: url('Ubuntu-B.woff');
+    font-weight : bold;
+}
+
+
+@font-face 
+{
+    font-family : "Ubuntu";
+    src: url('Ubuntu-I.woff');
+    font-style : italic;
+}
+
+
+@font-face
+{
+    font-family : "Ubuntu";
+    src: url('Ubuntu-BI.woff');
+    font-weight : bold;
+    font-style : italic;
+}
+
 /* General Styles */
 	.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p {
 		font-family: 'Ubuntu', sans-serif;

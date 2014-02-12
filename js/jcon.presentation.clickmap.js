@@ -1,12 +1,8 @@
 jQuery(document).ready(function(){
 
-	// This is going to store our references to the canvas that we define as the stage
 	var stage;
 	var canvas;
 	var preload;
-	var hoveredElements = new Array ();  //creating an array of elements that are currently hovered on
-	var clickedElements = new Array ();  //creating an array of elements that are currently clicked
-
 	// The preloader
 	var loadingBarContainer;
 	var loadingBar;
@@ -134,270 +130,204 @@ jQuery(document).ready(function(){
 		{	id: "wisconsin-overlay", 		src: path + "assets/overlays/wisconsin-o.png", 		data: "521,96",  label: "Wisconsin"		},																			
 		{	id: "wyoming-overlay", 			src: path + "assets/overlays/wyoming-o.png", 		data: "316,111", label: "Wyoming"		},																																						
 	];
-
-	/********************************
-	 * This initializes everything 
-	 * after document ready.
-	 *********/
+	
+	
+		
 	function init() {
-		//console.log ("Names Array: ", nameArray);
-		// initialize the stage
-		
-		// see of the broswer supports Canvas
-		function isCanvasSupported(){
-		  var elem = document.createElement("canvas");
-		  return !!(document.createElement("canvas").getContext && document.createElement("canvas").getContext("2d"));
-		}
-
-		//Concatonate all the arrays
-		var assets = backgrounds.concat(shapes).concat(overlays);
-//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
-
-		// if Canvas is supported, go to work
-		if(isCanvasSupported()){
-
-			canvas = document.getElementById("shapeMap");
-			stage = new createjs.Stage(canvas);
-
-			stage.update();
-
-			// enable hover events
-			stage.enableMouseOver();
-
-			// preload everything by calling the function
-			preLoadAssets(assets);  
+			//console.log ("Names Array: ", nameArray);
+			// initialize the stage
 			
-		}
-	}
-
-	/********************************
-	 * Handle all the preloading of 
-	 * assets and communicate progress
- 	 ********************/
-	function preLoadAssets(assets) {
-		
-		//creating the progress label
-		loadProgressLabel = new createjs.Text("","18px Verdana","black");
-		loadProgressLabel.lineWidth = 200;
-		loadProgressLabel.textAlign = "center";
-		loadProgressLabel.x = canvas.width/2;
-		loadProgressLabel.y = 50;
-		stage.addChild(loadProgressLabel);
-
-		//container that holds all the elements of the loading bar
-		loadingBarContainer = new createjs.Container();
-
-		//the height width and color of the loading bar
-	    loadingBarHeight = 9;
-	    loadingBarWidth = 307;
-	    LoadingBarColor = createjs.Graphics.getRGB(0,126,205);
-
-		//creating the loading bar   
-	    loadingBar = new createjs.Shape();
-	    loadingBar.graphics.beginFill(LoadingBarColor).drawRect(0, 0, 1, loadingBarHeight).endFill();
-
-	    //creating the frame around the loading bar
-	    frame = new createjs.Shape();
-	    padding = 3;
-	    frame.graphics.setStrokeStyle(1).beginStroke(LoadingBarColor).drawRect(-padding/2, -padding/2, loadingBarWidth+padding, loadingBarHeight+padding).endStroke();
-
-	    //adding the loading bar and the frame to our container and placing it on the desired position on the canvas
-	    loadingBarContainer.addChild(loadingBar, frame);
-	    loadingBarContainer.x = Math.round(canvas.width/2 - loadingBarWidth/2);
-	    loadingBarContainer.y = 252;
-
-		//adding the container with the elements to our stage
-	    stage.addChild(loadingBarContainer);
-		stage.update();
-
-	    //creating the loading queue and the events for progress and completion
-		preload = new createjs.LoadQueue(false);
-
-		//calls the js functions below
-		preload.addEventListener("progress", handleLoadProgress);
-		preload.addEventListener("complete", handleLoadComplete); 
-
-		// Concatanate all the assets arrays
-
-		// Preload them
-		preload.loadManifest(assets);
-		
-	}
+			// see of the broswer supports Canvas
+			function isCanvasSupported(){
+			  var elem = document.createElement("canvas");
+			  return !!(document.createElement("canvas").getContext && document.createElement("canvas").getContext("2d"));
+			}
 	
-	/********************************
-	 * Event handler function to 
-	 * indicate progress
- 	 ********************/	
-	function handleLoadProgress(e){
-
-		loadingBar.scaleX = preload.progress * loadingBarWidth;
-
-		stage.update();
-	}
-
-	/********************************
-	 * Event handler function to 
-	 * indicate complete
- 	 ********************/	
-	function handleLoadComplete() {
-
-		//remove progress bar
-		stage.removeChild(loadProgressLabel, loadingBarContainer);
- 
-		//update stage
-		stage.update();
-
-		//Put everything together
-		start();
-
-	}
-
-	/********************************
-	 * Function to put everything 
-	 * on the stage
- 	 ********************/
-	function start() {
-
-		createjs.Sound.registerSound({id:"tick", src:"assets/sounds/tap-play-6.wav"});
-		//Put the background images on the stage
-		for (var counter = 0; counter < backgrounds.length; counter ++){
-
-			//go through the array to find the object in memory that matches the id
-			var preloadedImage = preload.getResult(backgrounds[counter].id);
-
-			//pass the reference in memory to the function to return a bit map object
-			var bitMapImage = new createjs.Bitmap(preloadedImage);
-
-			// Get the string that is in data and turn it into an array.
-			// Whereever there is comma that starts a new index of the array.
-			var coordinates = backgrounds[counter].data.split(',');
-
-			bitMapImage.x = coordinates[0];
-			bitMapImage.y = coordinates[1];
-
-			stage.addChild(bitMapImage);
-		}
-
-		stage.update();
-
-		//put the overlays array objects on the stage
-
-		for (var counter = 0; counter < overlays.length; counter ++){
-
-			//go through the array to find the object in memory that matches the id
-			var preloadedImage = preload.getResult(overlays[counter].id);
-
-			//pass the reference in memory to the function to return a bit map object
-			var bitMapImage = new createjs.Bitmap(preloadedImage);
-
-			// Get the string that is in data and turn it into an array.
-			var coordinates = overlays[counter].data.split(',');
-
-			bitMapImage.x = coordinates[0];
-			bitMapImage.y = coordinates[1];
-			overlays[counter].bitmapID = bitMapImage.id;
-			bitMapImage.addEventListener('mouseout',handleShapeMouseOut);
-			bitMapImage.addEventListener('click', handleShapeClick);
-			stage.addChild(bitMapImage);
-		}
-
-		stage.update();
-
-		//put the shapes array on the Stage -- they are on top and will fade down on mouse in
-
-		for (var counter = 0; counter < shapes.length; counter ++){
-
-			//go through the array to find the object in memory that matches the id
-			var preloadedImage = preload.getResult(shapes[counter].id);
-
-			//pass the reference in memory to the function to return a bit map object
-			var bitMapImage = new createjs.Bitmap(preloadedImage);
-
-			// Get the string that is in data and turn it into an array.
-			var coordinates = shapes[counter].data.split(',');
-
-			bitMapImage.x = coordinates[0];
-			bitMapImage.y = coordinates[1];
-
-			// Add the Event Listeners
-			bitMapImage.addEventListener('mouseover', handleShapeMouseIn);
-			stage.addChild(bitMapImage);
-		}
-
-		stage.update();
-
-		//Text Box for State Labels
-		var border = new createjs.Shape();
-		border.graphics.beginStroke("#3336699");
-		border.graphics.setStrokeStyle(1);
-		border.snapToPixel = true;
-		border.graphics.drawRect(0, 0, 200, 100);
-		border.x = 740;
-		border.y = 420;
-		stage.addChild(border);
-
-		shapeLabel = new createjs.Text("", "18px Arial", "#3336699");
-		shapeLabel.y = 445;
-    	shapeLabel.x = 840;
-    	shapeLabel.width= 200;
-    	shapeLabel.textAlign = "center";
-		stage.addChild(shapeLabel);
-		
-		stage.update();	
-
-	}
-
-
+			//Concatonate all the arrays
+			var assets = backgrounds.concat(shapes).concat(overlays);
+	//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
 	
-	function handleShapeMouseOut(e){
-
-		// Do a for loop on hoveredElements array
-		// On each iteration of the loop, add the element to the stage
-		// At the end of the loop, reset the array
+			// if Canvas is supported, go to work
+			
+			if(isCanvasSupported()){
+				
+				canvas = document.getElementById("shapeMap");
+				stage = new createjs.Stage(canvas);
 	
-		for (var counter = 0; counter < hoveredElements.length; counter ++){
-			stage.addChild(hoveredElements[counter]);
-		}
-
-		hoveredElements = new Array(); 
-
-		stage.update();
-	}
-
-		
+				stage.update();
 	
-	function handleShapeMouseIn(e){
-		
-		hoveredElements.push(e.target);
-
-		//console.log ('All Arrays Concatonated', hoveredElements); //See how we are building the array
-		
-		stage.removeChild(e.target);
-
-		stage.update();
-	}
-
+				// enable hover events
+				stage.enableMouseOver();
 	
-	function handleShapeClick(e){
-		 
-		//console.log ('Teresa was in Click');
-
-		createjs.Sound.play("tick");
-		clickedElements.push(e.target);
-		for(var counter = 0; counter < overlays.length; counter++)
-		{
-			if(overlays[counter].bitmapID === e.target.id){
-				shapeLabel.text = overlays[counter].label;
+				// preload everything by calling the function
+				preLoadAssets(assets);  
+				
 			}
 		}
-		
 	
-    	stage.addChild(shapeLabel);
-
-		stage.update();  
-
-	}
-
+		/********************************
+		 * Handle all the preloading of 
+		 * assets and communicate progress
+	 	 ********************/
+		function preLoadAssets(assets) {
+			
+			//creating the progress label
+			loadProgressLabel = new createjs.Text("","18px Verdana","black");
+			loadProgressLabel.lineWidth = 200;
+			loadProgressLabel.textAlign = "center";
+			loadProgressLabel.x = canvas.width/2;
+			loadProgressLabel.y = 50;
+			stage.addChild(loadProgressLabel);
+	
+			//container that holds all the elements of the loading bar
+			loadingBarContainer = new createjs.Container();
+	
+			//the height width and color of the loading bar
+		    loadingBarHeight = 9;
+		    loadingBarWidth = 307;
+		    LoadingBarColor = createjs.Graphics.getRGB(0,126,205);
+	
+			//creating the loading bar   
+		    loadingBar = new createjs.Shape();
+		    loadingBar.graphics.beginFill(LoadingBarColor).drawRect(0, 0, 1, loadingBarHeight).endFill();
+	
+		    //creating the frame around the loading bar
+		    frame = new createjs.Shape();
+		    padding = 3;
+		    frame.graphics.setStrokeStyle(1).beginStroke(LoadingBarColor).drawRect(-padding/2, -padding/2, loadingBarWidth+padding, loadingBarHeight+padding).endStroke();
+	
+		    //adding the loading bar and the frame to our container and placing it on the desired position on the canvas
+		    loadingBarContainer.addChild(loadingBar, frame);
+		    loadingBarContainer.x = Math.round(canvas.width/2 - loadingBarWidth/2);
+		    loadingBarContainer.y = 252;
+	
+			//adding the container with the elements to our stage
+		    stage.addChild(loadingBarContainer);
+			stage.update();
+	
+		    //creating the loading queue and the events for progress and completion
+			preload = new createjs.LoadQueue(false);
+	
+			//calls the js functions below
+			preload.addEventListener("progress", handleLoadProgress);
+			preload.addEventListener("complete", handleLoadComplete); 
+	
+			// Concatanate all the assets arrays
+	
+			// Preload them
+			preload.loadManifest(assets);
+			
+		}
+		
+		/********************************
+		 * Event handler function to 
+		 * indicate progress
+	 	 ********************/	
+		function handleLoadProgress(e){
+			loadProgressLabel.text = "loading:" + Math.round(preload.progress*100);
+			loadingBar.scaleX = preload.progress * loadingBarWidth;
+	
+			stage.update();
+		}
+	
+		/********************************
+		 * Event handler function to 
+		 * indicate complete
+	 	 ********************/	
+		function handleLoadComplete() {
+	
+			//remove progress bar
+			stage.removeChild(loadProgressLabel, loadingBarContainer);
+			//update stage
+			stage.update();
+	
+			//Put everything together
+			start();
+	
+		}
+	
+		/********************************
+		 * Function to put everything 
+		 * on the stage
+	 	 ********************/
+	 	 
+	 	function handleClick(event) {
+	 		var container = event.currentTarget;
+	 		var image = event.target;
+	 		var label = container.label;
+			shapeLabel.text = label;
+	 	}
+	 	
+	 	function handleOver(event) {
+			var container = event.currentTarget;
+			var image = event.target;
+			var label = container.label;
+			
+			 createjs.Tween.get(container.getChildAt(0)).to({alpha:1}, 500);
+			 //container.getChildAt(0).alpha = 1;
+			 //container.getChildAt(1).alpha = 0;
+			 createjs.Tween.get(container.getChildAt(1)).to({alpha:0}, 500);
+			
+			shapeLabel.text = label;
+	 	}
+	 	
+	 	function handleOut(event) {
+			var container = event.currentTarget;
+			var image = event.target;
+			//container.getChildAt(0).alpha = 0;
+			//container.getChildAt(1).alpha = 1;
+			createjs.Tween.get(container.getChildAt(0)).to({alpha:0}, 500);
+			createjs.Tween.get(container.getChildAt(1)).to({alpha:1}, 500);
+			
+			var label = container.label;
+			shapeLabel.text = "";
+	 	}
+	 	 
+		function start() {
+			
+			createjs.Ticker.addEventListener("tick", stage);
+			createjs.Sound.registerSound({id:"tick", src:"assets/sounds/tap-play-6.wav"});
+			//Put the background images on the stage
+			
+			var bitMapImage = new createjs.Bitmap(preload.getResult("background-shapes-borders"));
+			stage.addChild(bitMapImage);
+			
+			for (var counter = 0; counter < overlays.length; counter ++){
+				var shapeData = shapes[counter];
+				var overlayData = overlays[counter];
+				var shapeImage = new createjs.Bitmap(preload.getResult(shapeData.id));
+				var overlayImage = new createjs.Bitmap(preload.getResult(overlayData.id));
+				var coordinates = shapeData.data.split(',');
+				var container = new createjs.Container();
+				container.x = coordinates[0];
+				container.y = coordinates[1];
+				container.label = overlayData.label;
+				container.addEventListener('mouseover',handleOver);
+				container.addEventListener('mouseout',handleOut);
+				container.addEventListener('click', handleClick);
+				
+				container.addChild(overlayImage, shapeImage);
+				stage.addChild(container);
+			}
+	
+			//Text Box for State Labels
+			var border = new createjs.Shape();
+			border.graphics.beginStroke("#3336699");
+			border.graphics.setStrokeStyle(1);
+			border.snapToPixel = true;
+			border.graphics.drawRect(0, 0, 200, 100);
+			border.x = 740;
+			border.y = 420;
+			stage.addChild(border);
+	
+			shapeLabel = new createjs.Text("", "18px Arial", "#3336699");
+			shapeLabel.y = 445;
+	    	shapeLabel.x = 840;
+	    	shapeLabel.width= 200;
+	    	shapeLabel.textAlign = "center";
+			stage.addChild(shapeLabel);
+		}
+		
 	//Do what you love...Love what you do...Pixel Heart Apps.
 
 	jQuery(document).ready(function($) {
