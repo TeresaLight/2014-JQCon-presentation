@@ -120,17 +120,17 @@
 					</div>
 					
 					<pre class="long-javascript"><code class="language-javascript">
-						var g = new createjs.Graphics();
-			g.setStrokeStyle(1);
-			g.beginStroke(createjs.Graphics.getRGB(0,0,0));
-		    g.beginFill(createjs.Graphics.getRGB(255,0,0));
-		    g.drawCircle(50,50,50);
+						var graphic = new createjs.Graphics();
+			graphic.setStrokeStyle(1);
+			graphic.beginStroke(createjs.Graphics.getRGB(0,0,0));
+		    graphic.beginFill(createjs.Graphics.getRGB(255,0,0));
+		    graphic.drawCircle(50,50,50);
 
-		    var s = new createjs.Shape(g);
-		    s.x = 25;
-		    s.y = 50;
+		    var shape = new createjs.Shape(graphic);
+		    shape.x = 25;
+		    shape.y = 50;
 
-		    stage.addChild(s);
+		    stage.addChild(shape);
 							    
 					</code></pre>
 				
@@ -163,11 +163,11 @@
 				</div>
 				
 				<pre class="long-javascript"><code class="language-javascript">
-					s.alpha = 1;
-					createjs.Tween.get(s)
+					circle.alpha = 1;
+					createjs.Tween.get(circle)
 				 		  .to({x:300}, 1000)
 				 		  .call(function(){
-						    fadeOn(s);
+						    //handle complete
 						    });
 						    
 				</code></pre>
@@ -185,6 +185,27 @@
 							<p>Works great cross platform</p>
 						</div>
 					</section>
+				</section>
+
+				<section>
+
+					<h2>SoundJS Code Example</h2>
+
+					<div class="fragment">
+						<canvas id="soundJS" ></canvas>
+					</div>
+					
+					<pre class="long-javascript"><code class="language-javascript">
+						createjs.Sound.registerSound({id:"tick-sound", src:"tap-play-6.wav"});
+			.
+			.
+			.
+			circle.addEventListener('click', function(){
+				createjs.Sound.play("tick-sound");
+			});
+							    
+					</code></pre>
+				
 				</section>
 
 				<!-- Case Study -->
