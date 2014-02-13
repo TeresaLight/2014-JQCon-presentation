@@ -1,22 +1,32 @@
 jQuery(document).ready(function(){
 
+	/***********************************
+	 * Written by:
+	 *
+	 * Teresa Light - http://teresalight.com, @Teresa_Light
+	 *    
+	 * Josh Smith - http://github.jpsmith1981.com, @jpsmith1981
+	 *
+	 * February, 2014
+	 *
+	 *********/
+
+	/***********************************
+	 * Define variables
+	 *********/
 	var stage;
 	var canvas;
 	var preload;
-	// The preloader
 	var loadingBarContainer;
 	var loadingBar;
 	var shapeLabel;
 	var border;  //for the shape display box
-
-	// Base path to the relative assets
-	var path = '';
+	var path = ''; 	// Base path to the relative assets
 	
 	/***********************************
 	 * Define all arrays for the assets
 	 *********/
-
-	// array for the images of the backgrounds
+	 
 	var backgrounds = 
 	[
 		{	id: "background-shapes-borders",   	src: path + "assets/backgrounds/blank.png",  data: "0,0"	 },
@@ -147,11 +157,11 @@ jQuery(document).ready(function(){
 			//Concatonate all the arrays
 			var assets = backgrounds.concat(shapes).concat(overlays);
 
-	//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
+			//console.log ('All Arrays Concatonated', assets); //See how we are building the array
 	
 			// if Canvas is supported, go to work
 			
-			if(isCanvasSupported()){
+			if(!isCanvasSupported()){
 				
 				canvas = document.getElementById("shapeMap");
 				stage = new createjs.Stage(canvas);
@@ -162,8 +172,11 @@ jQuery(document).ready(function(){
 				stage.enableMouseOver();
 	
 				// preload everything by calling the function
-				preLoadAssets(assets);  
-				
+				preLoadAssets(assets);	
+			}
+			else { 
+				 $('#message').append('HTML5 Canvas is not supported in your browser. Please visit http://caniuse.com/#search=canvas to learn more.')
+				;
 			}
 		}
 	
@@ -291,7 +304,7 @@ jQuery(document).ready(function(){
 			
 			createjs.Ticker.addEventListener("tick", stage);
 
-			createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tap-play-6.wav"});
+			createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tl-map-1.wav"});
 
 			//Put the background images on the stage
 			
