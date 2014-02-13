@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
 		
 		createjs.Ticker.addEventListener("tick", stage);
 
-		createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tap-play-6.wav"});
+		createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tl-map-1.wav"});
 
 		var g = new createjs.Graphics();
 			g.setStrokeStyle(1);
