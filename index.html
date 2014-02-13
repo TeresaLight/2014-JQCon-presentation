@@ -34,13 +34,16 @@
 	
 				<section data-background-transition="slide" data-background-color="#6A6456" style="">
 					
-						<h4>Our Twitters</h4>
+						<h5>Our Twitters</h5>
 						<p>Teresa Light: @teresa_light</p>
 						<p>Joshua Smith: @jpsmith1981</p></br>
 
 						<h5>CreateJS People to Follow</h5>
 
-						<p>The Framework, Very Responsive ----> @createjs</p><p>@derossi_s    <---- This Guy is so awesome!!</p></br>
+						<p>The Framework, Very Responsive ----> @createjs</p>
+						<p>@derossi_s    <---- This Guy is so awesome!!</p>
+						<p>Code Guru, CreateJS Lead ----> @grantskinner </p>
+						</br>
 						
 						<h5>Slides Github</h5>
 						<p>https://github.com/jpsmith1981/presentation-createjs</p>
@@ -126,9 +129,9 @@
 	graphic.beginFill(createjs.Graphics.getRGB(255,0,0));
 	graphic.drawCircle(50,50,50);
 
-	var shape = new createjs.Shape(graphic);
-	shape.x = 25;
-	shape.y = 50;
+	var circle = new createjs.Shape(graphic);
+	circle.x = 25;
+	circle.y = 50;
 
 	stage.addChild(shape);
 
@@ -142,6 +145,31 @@
 						<p>A Javascript library  that lets you manage and co-ordinate the loading of assets</p>
 						<p>Control page load speeds by chosing when to load what</p>
 					</div>
+				</section>
+
+				<section>
+
+					<h2>Preload Code Example</h2>
+				
+					<pre class="long-javascript"><code class="language-javascript">
+var assets = 
+[
+	{	id: "background",   	src: "backgrounds.png"   },
+	{	id: "alabama-shape", 	src: "alabama-s.png"     },					
+	{	id: "alaska-shape", 	src: "alaska-s.png"      },
+	{	id: "arizona-shape", 	src: "arizona-s.png"     },
+];
+
+preload = new createjs.LoadQueue(false);
+
+preload.addEventListener("progress", handleLoadProgress);
+preload.addEventListener("complete", handleLoadComplete); 
+
+// Preload them
+preload.loadManifest(assets);
+							    
+					</code></pre>
+				
 				</section>
 
 				
@@ -196,12 +224,12 @@
 					</div>
 					
 					<pre class="long-javascript"><code class="language-javascript">
-						createjs.Sound.registerSound({id:"tick-sound", src:"tap-play-6.wav"});
+			createjs.Sound.registerSound({id:"tick-sound", src:"tap.wav"});
 			.
 			.
 			.
 			circle.addEventListener('click', function(){
-				createjs.Sound.play("tick-sound");
+			    createjs.Sound.play("tick-sound");
 			});
 							    
 					</code></pre>

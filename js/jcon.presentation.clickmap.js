@@ -147,8 +147,6 @@ jQuery(document).ready(function(){
 			//Concatonate all the arrays
 			var assets = backgrounds.concat(shapes).concat(overlays);
 
-	//		console.log ('All Arrays Concatonated', assets); //See how we are building the array
-	
 			// if Canvas is supported, go to work
 			
 			if(isCanvasSupported()){
