@@ -20,18 +20,17 @@ jQuery(document).ready(function(){
 		    
 		    g.beginStroke(createjs.Graphics.getRGB(0,0,0));
 		    g.beginFill(createjs.Graphics.getRGB(255,0,0));
-		    g.drawCircle(100,100,100);
+		    g.drawCircle(50,50,50);
 
 		    var s = new createjs.Shape(g);
-		    s.x = 100;
-		    s.y = 100;
+		    s.x = 25;
+		    s.y = 50;
 
 		    stage.addChild(s);
 		    stage.update();
 
 		    s.alpha = 1;
 		    createjs.Tween.get(s)
-		         .wait(500)
 		         .to({x:300}, 1000)
 		         .call(function(){
 		         	fadeOn(s);
@@ -44,7 +43,6 @@ jQuery(document).ready(function(){
 	function fadeOn(s){
 		
 	    createjs.Tween.get(s)
-	         .wait(500)
 	         .to({x:300}, 1000)
 	         .call(function(){
 	         	fadeOut(s);
@@ -54,8 +52,7 @@ jQuery(document).ready(function(){
 	function fadeOut(s){
 		s.alpha = 1;
 	    createjs.Tween.get(s)
-	         .wait(500)
-	         .to({x:100}, 1000)
+	         .to({x:25}, 1000)
 	         .call(function(){
 	         	fadeOn(s);
 	         });

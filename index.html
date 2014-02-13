@@ -31,7 +31,7 @@
 		<div class="reveal">
 
 			<div class="slides">
-
+	
 				<section data-background-transition="slide" data-background-color="#6A6456" style="">
 					
 						<h4>Our Twitters</h4>
@@ -39,19 +39,22 @@
 						<p>Joshua Smith: @jpsmith1981</p></br>
 
 						<h5>CreateJS People to Follow</h5>
-						<p>@createjs</p><p>@derossi_s</p></br>
 
+						<p>The Framework, Very Responsive ----> @createjs</p><p>@derossi_s    <---- This Guy is so awesome!!</p></br>
+						
 						<h5>Slides Github</h5>
 						<p>https://github.com/jpsmith1981/presentation-createjs</p>
 					
 				</section>
 
-				<section data-background-transition="slide" data-background="assets/backgrounds/CreateJS-background.png" data-background-color="#6A6456" style="">
+				<section data-background-transition="slide" data-background="assets/backgrounds/CreateJS-background.png" data-background-color="white" style="">
 					<div class="content-right-60">
 						<h1>Create Amazing Interactive Content</h1>
 						<strong>With CreateJS</strong>
 					</div>
 				</section>
+
+				<!-- Bio -->
 
 				<section id="teresa-bio" data-background="#FFF8EB">
 					<div class="content-left-40">
@@ -75,7 +78,8 @@
 
 					</div>
 				</section>				
-		
+				
+				<!-- CreateJS What is it -->
 
 				<section data-background="#EADBBE">
 					<section>
@@ -92,75 +96,88 @@
 					<h2 class="text-white">Who Uses It...</h2>
 				</section>
 
+				<!-- Easel JS Slides -->
+				
 				<section data-background="assets/backgrounds/EaselJS-background.png" data-background-color="#FFF8EB">
 					<div class="content-right-60">
 						<h2>EaselJS</h2>
 						<p>A Javascript library that makes working with the HTML5 Canvas element easy. About EaselJS. EaselJS provides straight forward solutions for working with rich graphics and interactivity with HTML5 Canvas.
 						</p>
 
-							<p>Easy to use flash-like API</p>
-							<p>Animate Sprites</p>
-							<p>Filters, Masks and Transformations</p>
+						<p>Easy to use flash-like API</p>
+						<p>Animate Sprites</p>
+						<p>Filters, Masks and Transformations</p>
 
 					</div>	
 				</section>
 
-				<section data-background-color="#FFF8EB">
-					<h2>Example Display Object using Create JS</h2>
+				<section>
 
-										
-							<pre>
-								<code class="javascript" data-trim>
+					<h2>EaselJS Code Example</h2>
 
-								var g = new createjs.Graphics();
-								g.setStrokeStyle(1);
-							    
-							    g.beginStroke(createjs.Graphics.getRGB(0,0,0));
-							    g.beginFill(createjs.Graphics.getRGB(255,0,0));
-							    g.drawCircle(0,0,3);
-
-							    var s = new createjs.Shape(g);
-							    s.x = 100;
-							    s.y = 100;
-
-							    stage.addChild(s);
-							    stage.update();
-															
-								</code>
-							</pre>
-
+					<div class="fragment">
+						<canvas id="easelJS" ></canvas>
+					</div>
 					
+					<pre class="long-javascript"><code class="language-javascript">
+						var g = new createjs.Graphics();
+			g.setStrokeStyle(1);
+			g.beginStroke(createjs.Graphics.getRGB(0,0,0));
+		    g.beginFill(createjs.Graphics.getRGB(255,0,0));
+		    g.drawCircle(50,50,50);
 
-					<div class="content-right-40">
-					<canvas id="easel-example">
-						
-					</canvas>
-					</div>	
+		    var s = new createjs.Shape(g);
+		    s.x = 25;
+		    s.y = 50;
+
+		    stage.addChild(s);
+							    
+					</code></pre>
+				
 				</section>
 
 				<section data-background="assets/backgrounds/PreloadJS-background.png" data-background-color="#FFF8EB">
-					<section>
-						<div class="content-right-60">
-							<h2>PreloadJS</h2>
-							<p>A Javascript library  that lets you manage and co-ordinate the loading of assets</p>
-							<p>Control page load speeds by chosing when to load what</p>
-						</div>
-					</section>
-
+					<div class="content-right-60">
+						<h2>PreloadJS</h2>
+						<p>A Javascript library  that lets you manage and co-ordinate the loading of assets</p>
+						<p>Control page load speeds by chosing when to load what</p>
+					</div>
 				</section>
 
-				<section data-background="assets/backgrounds/TweenJS-background.png" data-background-color="#FFF8EB">
-					<section>
-						<div class="content-right-60">
-							<h2>TweenJS</h2>
-							<p>A Javascript library for tweening and animating HTML5 and Javascript properties.</p>
-							<p>Simple API that allows for chaining.</p>
-						</div>
-					</section>
+				
+				<!-- TweenJS Slides -->
+				<section data-background="assets/backgrounds/TweenJS-background.png">
+					<div class="content-right-60">
+						<h2>TweenJS</h2>
+						<p>A Javascript library for tweening and animating HTML5 and Javascript properties.</p>
+					</div>
+				</section>	
 
+
+				<section>
+
+				<h2>TweenJS Code Example</h2>
+
+				<div class="fragment">
+					<canvas id="tweenJS" ></canvas>
+				</div>
+				
+				<pre class="long-javascript"><code class="language-javascript">
+					s.alpha = 1;
+					createjs.Tween.get(s)
+				 		  .to({x:300}, 1000)
+				 		  .call(function(){
+						    fadeOn(s);
+						    });
+						    
+				</code></pre>
+				
 				</section>
+
+				<!-- SoundJS Slides	 -->
 
 				<section data-background="assets/backgrounds/SoundJS-background.png" data-background-color="#FFF8EB">
+
 					<section>
 						<div class="content-right-60">
 							<h2>SoundJS</h2>
@@ -170,6 +187,7 @@
 					</section>
 				</section>
 
+				<!-- Case Study -->
 				<section class="case-study">
 					<section data-background-transition="slide" data-background="#88888" style="background: rgba(255,255,255,0.9)" class="first">
 						<h2>Case Study</h2>
@@ -199,9 +217,6 @@
 						<canvas id="shapeMap" width="960" height="540"></canvas>
 					</section>
 				</section>
-
-
-
 
 
 			</div>
