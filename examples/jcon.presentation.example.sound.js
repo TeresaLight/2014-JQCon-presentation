@@ -1,4 +1,4 @@
-console.log('Here');
+//console.log('Here');
 
 // Get the Sound Ready
 createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashPlugin]);
@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
 		canvas = document.getElementById("soundJS");
 		stage = new createjs.Stage(canvas);
 
-		console.log(stage);
+//		console.log(stage);
 		// enable hover events
 		stage.enableMouseOver();
 		
@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
 
 		    s.addEventListener('click', handleClick);
 
-		console.log('Sound');
+//		console.log('Sound');
 	}
 
 	function handleClick(){
