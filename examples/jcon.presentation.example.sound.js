@@ -1,4 +1,18 @@
 console.log('Here');
+
+// Get the Sound Ready
+createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashPlugin]);
+	createjs.Sound.addEventListener("fileload", createjs.proxy(this.loadHandler, (this)));
+	createjs.Sound.registerSound("assets/sounds/tl-map-1.wav", "sound");
+	function loadHandler(event) {
+	 // This is fired for each sound that is registered.
+	 var instance = createjs.Sound.play("sound");  // play using id.  Could also use full source path or event.src.
+	 instance.addEventListener("complete", createjs.proxy(this.handleComplete, this));
+	 instance.volume = 0.5;
+	}
+
+
+// Build the Object
 jQuery(document).ready(function(){
 
 	var stage;
@@ -6,16 +20,6 @@ jQuery(document).ready(function(){
 	var preload;
 
 	function init() {
-
-		 createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashPlugin]);
-		 createjs.Sound.addEventListener("fileload", createjs.proxy(this.loadHandler, (this)));
-		 createjs.Sound.registerSound("assets/sounds/tl-map-1.wav", "sound");
-		 function loadHandler(event) {
-		     // This is fired for each sound that is registered.
-		     var instance = createjs.Sound.play("sound");  // play using id.  Could also use full source path or event.src.
-		     instance.addEventListener("complete", createjs.proxy(this.handleComplete, this));
-		     instance.volume = 0.5;
-		 }
 		
 		canvas = document.getElementById("soundJS");
 		stage = new createjs.Stage(canvas);
@@ -25,8 +29,6 @@ jQuery(document).ready(function(){
 		stage.enableMouseOver();
 		
 		createjs.Ticker.addEventListener("tick", stage);
-
-		createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tl-map-1.wav"});
 
 		var g = new createjs.Graphics();
 			g.setStrokeStyle(1);
@@ -50,7 +52,7 @@ jQuery(document).ready(function(){
 
 	function handleClick(){
 		console.log('Shape Clicked');
-		createjs.Sound.play("tick-sound");
+		createjs.Sound.play("sound");
 	}
 
 	init();
