@@ -32,7 +32,7 @@
 		<div class="reveal">
 
 			<div class="slides">
-
+	
 				<section data-background-transition="slide" data-background-color="#6A6456" style="">
 					
 						<h4>Our Twitters</h4>
@@ -124,6 +124,27 @@
 					</section>
 
 				</section>
+
+				<section>
+
+				<h2>TweenJS Code Example</h2>
+
+				<div class="fragment">
+					<canvas id="tweenJS" ></canvas>
+				</div>
+				
+				<pre class="long-javascript"><code class="language-javascript">
+					s.alpha = 1;
+					createjs.Tween.get(s)
+				 		  .to({x:300}, 1000)
+				 		  .call(function(){
+						    fadeOn(s);
+						    });
+						    
+				</code></pre>
+				
+				</section>
+
 
 				<section data-background="assets/sound-js.png" data-background-color="#FFF8EB">
 					<section>
