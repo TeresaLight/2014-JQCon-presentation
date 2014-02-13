@@ -119,20 +119,20 @@
 						<canvas id="easelJS" ></canvas>
 					</div>
 					
-					<pre class="long-javascript"><code class="language-javascript">
-						var graphic = new createjs.Graphics();
-			graphic.setStrokeStyle(1);
-			graphic.beginStroke(createjs.Graphics.getRGB(0,0,0));
-		    graphic.beginFill(createjs.Graphics.getRGB(255,0,0));
-		    graphic.drawCircle(50,50,50);
+<pre class="long-javascript"><code class="language-javascript">
+	var graphic = new createjs.Graphics();
+	graphic.setStrokeStyle(1);
+	graphic.beginStroke(createjs.Graphics.getRGB(0,0,0));
+	graphic.beginFill(createjs.Graphics.getRGB(255,0,0));
+	graphic.drawCircle(50,50,50);
 
-		    var shape = new createjs.Shape(graphic);
-		    shape.x = 25;
-		    shape.y = 50;
+	var shape = new createjs.Shape(graphic);
+	shape.x = 25;
+	shape.y = 50;
 
-		    stage.addChild(shape);
-							    
-					</code></pre>
+	stage.addChild(shape);
+
+</code></pre>
 				
 				</section>
 
@@ -163,12 +163,12 @@
 				</div>
 				
 				<pre class="long-javascript"><code class="language-javascript">
-					circle.alpha = 1;
-					createjs.Tween.get(circle)
-				 		  .to({x:300}, 1000)
-				 		  .call(function(){
-						    //handle complete
-						    });
+	circle.alpha = 1;
+	createjs.Tween.get(circle)
+	              .to({x:300}, 1000)
+	              .call(function(){
+	                     //handle complete
+	               });
 						    
 				</code></pre>
 				

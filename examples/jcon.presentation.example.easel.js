@@ -1,4 +1,3 @@
-console.log('Here');
 jQuery(document).ready(function(){
 
 	var stage;
