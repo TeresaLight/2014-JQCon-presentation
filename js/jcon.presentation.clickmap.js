@@ -314,18 +314,18 @@ jQuery(document).ready(function(){
 				stage.addChild(container);
 			}
 	
-			//Text Box for Shape Labels
+			//Create the box for the text
 			border = new createjs.Shape();
 			border.graphics.beginStroke("#3336699");
 			border.graphics.setStrokeStyle(1);
 			border.snapToPixel = true;
-			border.graphics.drawRect(0, 0, 200, 100);
+			border.graphics.drawRect(0, 0, 200, 80);
 			border.x = 740;
-			border.y = 420;
+			border.y = 310;
 			
 	
 			shapeLabel = new createjs.Text("", "18px Arial", "#3336699");
-			shapeLabel.y = 445;
+			shapeLabel.y = 335;
 	    	shapeLabel.x = 840;
 	    	shapeLabel.width= 200;
 	    	shapeLabel.textAlign = "center";
