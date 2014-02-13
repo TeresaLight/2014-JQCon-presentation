@@ -209,6 +209,7 @@ jQuery(document).ready(function(){
 			preload = new createjs.LoadQueue(false);
 			preload.installPlugin(createjs.SoundJS);
 			//calls the js functions below
+			createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tl-map-1.wav"});
 			preload.addEventListener("progress", handleLoadProgress);
 			preload.addEventListener("complete", handleLoadComplete); 
 	
@@ -289,8 +290,7 @@ jQuery(document).ready(function(){
 			
 			createjs.Ticker.addEventListener("tick", stage);
 
-			createjs.Sound.registerSound({id:"tick-sound", src:"assets/sounds/tl-map-1.wav"});
-
+			
 			//Put the background images on the stage
 			
 			var bitMapImage = new createjs.Bitmap(preload.getResult("background-shapes-borders"));

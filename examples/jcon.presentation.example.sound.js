@@ -6,6 +6,16 @@ jQuery(document).ready(function(){
 	var preload;
 
 	function init() {
+
+		 createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashPlugin]);
+		 createjs.Sound.addEventListener("fileload", createjs.proxy(this.loadHandler, (this)));
+		 createjs.Sound.registerSound("assets/sounds/tl-map-1.wav", "sound");
+		 function loadHandler(event) {
+		     // This is fired for each sound that is registered.
+		     var instance = createjs.Sound.play("sound");  // play using id.  Could also use full source path or event.src.
+		     instance.addEventListener("complete", createjs.proxy(this.handleComplete, this));
+		     instance.volume = 0.5;
+		 }
 		
 		canvas = document.getElementById("soundJS");
 		stage = new createjs.Stage(canvas);
