@@ -206,10 +206,10 @@ jQuery(document).ready(function(){
 			//adding the container with the elements to our stage
 		    stage.addChild(loadingBarContainer);
 			stage.update();
-	
+			
 		    //creating the loading queue and the events for progress and completion
 			preload = new createjs.LoadQueue(false);
-	
+			preload.installPlugin(createjs.SoundJS);
 			//calls the js functions below
 			preload.addEventListener("progress", handleLoadProgress);
 			preload.addEventListener("complete", handleLoadComplete); 

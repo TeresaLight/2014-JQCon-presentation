@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
 
 		    s.alpha = 1;
 		    createjs.Tween.get(s)
-		         .to({x:300}, 1000)
+		         .to({x:200}, 1000)
 		         .call(function(){
 		         	fadeOn(s);
 		         });
@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
 	function fadeOn(s){
 		
 	    createjs.Tween.get(s)
-	         .to({x:300}, 1000)
+	         .to({x:200}, 1000)
 	         .call(function(){
 	         	fadeOut(s);
 	         });
