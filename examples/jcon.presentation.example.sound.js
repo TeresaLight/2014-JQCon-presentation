@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
 		    g.drawCircle(50,50,50);
 
 		    var s = new createjs.Shape(g);
-		    s.x = 25;
+		    s.x = 75;
 		    s.y = 50;
 
 		    stage.update();
