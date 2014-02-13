@@ -53,6 +53,20 @@
 		color:white;
 	}
 
+	.reveal blockquote{
+		font-family: "Ubuntu";
+		width: 100%;
+
+	}
+
+	.reveal blockquote cite{
+		display:block;
+		font-weight: bold;
+		font-family: "Ubuntu";
+		font-size: 75%;
+
+	}
+
 	address{
 		margin-top: 200px;
 		text-align: left;
@@ -132,6 +146,25 @@
 		margin-left:40px;
 		font-size: 24px;
 		text-align: left;
+	}
+
+	.followers{
+		width: 100%;
+		margin-top: 16px;
+	}
+
+	.followers li{
+		float:left;
+		list-style:none;
+		display:block;
+		width:33%;
+		font-size: 26px;
+	}
+
+	.followers li img{
+		margin-top: 12px;
+		margin-right:8px;
+		vertical-align:middle;
 	}
 
 	.case-study select{
