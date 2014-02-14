@@ -139,10 +139,7 @@ jQuery(document).ready(function(){
 			// initialize the stage
 			
 			// see of the broswer supports Canvas
-			function isCanvasSupported(){
-			  var elem = document.createElement("canvas");
-			  return !!(document.createElement("canvas").getContext && document.createElement("canvas").getContext("2d"));
-			}
+			
 	
 			//Concatonate all the arrays
 			var assets = backgrounds.concat(shapes).concat(overlays);
@@ -337,6 +334,14 @@ jQuery(document).ready(function(){
 	jQuery(document).ready(function($) {
 		init();
 	});
+
 })
 
+
+/* Help Function to detect if canvas is supported: */
+
+function isCanvasSupported(){
+	var elem = document.createElement("canvas");
+	  return !!(document.createElement("canvas").getContext && document.createElement("canvas").getContext("2d"));
+}
 
