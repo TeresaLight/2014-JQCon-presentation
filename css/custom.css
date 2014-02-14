@@ -55,7 +55,7 @@
 						.
 
 	.reveal h2.text-white{
-		color:white;
+		color:white !;
 	}
 
 	.reveal blockquote{
