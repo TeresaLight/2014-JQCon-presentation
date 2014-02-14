@@ -1,5 +1,10 @@
 jQuery(document).ready(function(){
 
+	/***********************************
+	 * Teresa Light & Josh Smith, February 2014
+	 * www.teresalight.com
+	 *********/
+
 	var stage;
 	var canvas;
 	var preload;
