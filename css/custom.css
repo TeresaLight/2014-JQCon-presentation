@@ -52,11 +52,10 @@
 	.reveal h1.tall-title{
 		line-height:100px;
 	}
-						.
-
-	.reveal h2.text-white{
-		color:white !;
-	}
+						
+	/* .reveal h2.text-white{
+		color:#FFFFFF !important;
+	}*/
 
 	.reveal blockquote{
 		font-family: "Ubuntu";
